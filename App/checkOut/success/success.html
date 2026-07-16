@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/checkOut/success/success.css">
+    <title>成功頁面</title>
+</head>
+<body>
+    
+<div id="app">
+        
+    <div class="header">
+        <a class="return-btn" href="/App/home/index.html"><img  src="/icon/return.png" alt="返回按鈕"></a>
+        <h1>LOGO</h1>
+      </div>
+
+
+<div class="order-success-container"> 
+    <h2>購買成功!</h2>
+
+     <div class="order-list">   
+    <ul>
+        <li>購買人資訊</li>
+        <li>姓名:{{buyerInfo.name}}</li>
+        <li>電話:{{buyerInfo.phone}}</li>
+        <li>地址:{{buyerInfo.address}}</li>
+        <li>取貨方式:</li>
+        <li>運費:</li>
+        <li>總金額:</li>
+    </ul>
+    </div>
+
+
+    <div v-for="item in cart" class="order-cart">
+        <img :src="item.cover" alt="商品圖片">
+        <h3 class="name">書本名稱{{item.name}}</h3> 
+    </div>
+
+</div> 
+
+    <div @click="indexBtn" class="return-action">
+        <button id="return-index"  @click="clearOrder()">回到主頁</button>
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="/App/checkOut/success/success.js"></script>
+</body>
+</html>

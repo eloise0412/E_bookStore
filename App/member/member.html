@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/member/member.css">
+    <title>會員頁</title>
+</head>
+<body>
+
+<div id="app">
+    <div class="wrap">
+        
+        <div class="header">
+            <a class="return-btn" href="/App/index.html">
+                <img class="return_img" src="/icon/return.png"  alt="搜尋按鈕">
+            </a>
+            
+            <h1>會員</h1>              
+        </div>
+
+
+
+    <div class="memberCard">
+        <div class="center-wrap">
+        <img src="/img/bar-code.png" alt="會員條碼">
+        </div>
+
+        <div class="memberCard-information">
+            <h1>會員帳號:{{accountNumber}}</h1>
+        </div>
+
+    </div>
+
+
+ 
+        <button class="feature-menu">
+          心願清單 
+          <a href="/App/member/wishCart/wishCart.html" class="arrow">
+          <img src="/icon/right-arrow.png" alt="心願清單">
+          </a>
+        </button>
+        </div>
+
+    <button class="SignOut-btn">登出</button>
+
+
+        <div class="taBar-menu">
+            <ul class="taBar-action_menu">
+                <li><a href="/App/audioPage/audioIndex.html"><img src="/icon/headphoneW.png">有聲書</a></li>
+                <li><a href="/App/home/index.html"><img src="/icon/bookW.png">首頁</a></li>
+            
+                <li><a href="/App/checkOut/cart/shoppingCart.html">
+                  <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
+                  <img style="padding-right: 5px;" src="/icon/cartW.png">購物車</a>
+                </li>
+                
+                <li><a href="/App/bookcase/bookcase.html"><img src="/icon/bookshelfW.png">書櫃</a></li>
+                <li><a href="/App/member/member.html"><img src="/icon/memberW.png">會員</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="/App/member/member.js"></script>
+</body>
+</html>

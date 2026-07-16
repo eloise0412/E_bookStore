@@ -1,0 +1,953 @@
+本來想讓 audioBook的資料另存.js
+
+name、出版日期那些 取名叫 A.js 
+
+index.js 要取資料出來  就可以掛載到audioBook-index的網頁上
+
+
+結果 A.js + audioindex.js 同時都要掛載到 audioBook-index.html上面
+
+
+
+那為什麼之前 資料在index.js   index.html丟資料到 cart.html 
+cart.js收的時候 沒有引入阿?
+
+因為那時候是透過 localStorage 傳資料，不是直接共用變數。
+
+這時候資料被存進瀏覽器：
+
+localStorage
+└── cart : '[{...},{...}]'
+
+A 存進localStorage， 然後到了另一個頁面，瀏覽器的 localStorage拿資料。
+
+所以：
+
+index.js
+↓ 存進 localStorage
+瀏覽器
+↓ 從 localStorage 讀取
+cart.js
+
+所以必須要有兩個瀏覽器接資料
+
+
+還有方法2
+
+
+方法 2：script 引入（不用 localStorage）
+
+
+但是因為
+
+A.js
+
+const app = {
+	data{
+	return{
+	
+	produtce = [
+                  {}
+                  {}
+                   ]} 
+
+},
+		    methods: {
+       			 	addToCart(){
+            			localStorage.setItem(
+                		'audioCart',
+               			 JSON.stringify(this.audioProducts)
+              				);
+        				}
+},
+
+
+}
+
+跟
+
+index.js
+
+const app = {
+	data{
+	return{
+
+
+        this.getBook =
+            JSON.parse(
+                localStorage.getItem('getBook')
+            ) || [];
+	    },
+
+},
+
+}
+
+
+都有 const app 
+
+會報錯
+Uncaught SyntaxError:
+Identifier 'app' has already been declared
+
+
+JavaScript 會生氣：
+「欸！app 這個名字已經有人用了！」
+
+
+就只能繼續把 資料存在 audioIndex裡
+ 
+
+方法3
+
+方法 3：ES Module（現在主流）
+books.js
+export const books = [
+    { name:'原子習慣' }
+];
+app.js
+import { books } from './books.js';
+
+console.log(books);
+
+這也是 JS 和 JS 之間傳資料。
+
+
+
+--------------------------------------------------------------------------------------------------------------
+
+computed:{ filterBooks(){ return this.audioProducts.filter(book => { // 分類條件 const matchCategory = this.currentCategory === '全部種類' || book.category === this.currentCategory // 搜尋條件 const matchKeyword = book.name.includes(this.keyword) const matchKeywordCategory = book.category.includes(this.keyword) // 分類符合 ||而且 (書名符合 或 分類符合) return matchCategory && ( matchKeyword || matchKeywordCategory ) }) } } filterBooks() {} 是執行 filterBooks() 這段涵式的意思嗎
+
+
+
+對，沒錯。
+
+這裡：
+
+computed:{
+    filterBooks() {
+
+        return this.audioProducts.filter(book => {
+            ...
+        })
+
+    }
+}
+
+裡面的：
+
+filterBooks() {
+
+}
+
+就是在定義一個叫做 filterBooks 的函式（更精確地說是 computed 屬性）。
+
+但是它和：
+
+methods:{
+    filterBooks() {
+
+    }
+}
+
+有一個重要差別：
+
+在 computed 裡：
+
+computed:{
+    filterBooks() {
+
+    }
+}
+
+Vue 會：
+
+自動幫你執行這個函式，並且把回傳值存到 filterBooks。
+
+所以：
+
+<div v-for="book in filterBooks">
+
+其實 Vue 背後有點像：
+
+const result = filterBooks();
+
+然後：
+
+<div v-for="book in result">
+
+因此：
+
+computed:{
+    filterBooks() {
+        return ...
+    }
+}
+
+在 HTML 裡：
+
+<div v-for="book in filterBooks">
+
+不要寫：
+
+<div v-for="book in filterBooks()">
+
+因為 Vue 已經幫你執行了。
+
+你可以把它想成：
+
+computed:{
+    totalPrice(){
+        return 1000
+    }
+}
+
+Vue 自動：
+
+this.totalPrice === 1000
+
+而不是：
+
+this.totalPrice() // ❌
+
+所以：
+
+filterBooks() {
+
+}
+
+可以理解成：
+
+「定義一個名叫 filterBooks 的計算屬性，Vue 會自動執行它，並使用它回傳的結果。」
+
+而：
+
+return this.audioProducts.filter(...)
+
+則是：
+
+「從 audioProducts 裡篩選出符合條件的書籍，並回傳新的陣列。」
+
+最後：
+
+<div v-for="book in filterBooks">
+
+就會渲染這個新的陣列。
+
+omputed { filterBooks = filterBooks 的意思 }
+
+很接近，但不完全是。
+
+你可以先這樣理解：
+
+computed:{
+    filterBooks(){
+
+    }
+}
+
+意思是：
+
+在 Vue 裡建立一個叫做 filterBooks 的「計算屬性」。
+
+Vue 會偷偷幫你做：
+
+this.filterBooks = filterBooks()
+
+也就是：
+
+執行 filterBooks() 函式，然後把回傳值存到 this.filterBooks。
+
+例如：
+
+computed:{
+    filterBooks(){
+        return ['原子習慣','深度工作力']
+    }
+}
+
+Vue 會得到：
+
+this.filterBooks
+
+等於：
+
+['原子習慣','深度工作力']
+
+所以在 HTML：
+
+<div v-for="book in filterBooks">
+
+其實是在使用：
+
+this.filterBooks
+
+的值。
+
+你可以把它想成：
+
+computed:{
+    A(){
+
+        return B
+
+    }
+}
+
+等於：
+
+A = B
+
+例如：
+
+computed:{
+    totalPrice(){
+
+        return 500
+
+    }
+}
+
+Vue 最後會變成：
+
+this.totalPrice === 500
+
+所以：
+
+computed:{
+    filterBooks(){
+
+        return this.audioProducts.filter(...)
+    }
+}
+
+可以翻譯成：
+
+建立一個叫做 filterBooks 的變數，它的值等於：
+
+this.audioProducts.filter(...)
+
+只是這個變數會隨著資料變化自動重新計算。
+
+所以：
+
+computed:{
+    filterBooks(){
+        return ...
+    }
+}
+
+≈
+
+filterBooks = return 後面的結果
+
+------------------------------------------------------------
+
+
+addToCart(book){
+
+        const existingBook = this.cart.find(
+          item => item.name === book.name
+        );
+      
+        if(existingBook){
+      
+          existingBook.quantity++;
+      
+          console.log(existingBook.quantity);
+      
+        }else{
+      
+          this.cart.push({
+            ...book,
+            quantity:1
+          });
+      
+        }
+      
+        localStorage.setItem(
+          'cart',
+          JSON.stringify(this.cart)
+        );
+      
+      },
+
+
+
+
+addToCart(book) 的 book  來自  <button @click="addToCart(item)">  當 點擊後 item 傳入 addToCart(book)
+
+
+如果我要把 這一頁的東西 也存進 本來就有的 cart裡面 這樣寫可以嗎
+可以，但前提是 this.cart 一開始就要先把 localStorage 的 cart 讀出來。
+
+例如：
+
+data(){
+    return{
+
+        cart:
+        JSON.parse(
+            localStorage.getItem('cart')
+        ) || []
+
+    }
+}
+
+這樣：
+
+this.cart
+
+裡面就已經有：
+
+以前加入的商品
+
+然後：
+
+this.cart.push(...)
+
+就會繼續往後加。
+
+最後：
+
+localStorage.setItem(
+  'cart',
+  JSON.stringify(this.cart)
+);
+
+會把更新後的整個購物車重新存回去。
+
+
+---------------------------
+data{ return{ categories:[ '全部種類', '文學小說', '投資理財', '心理勵志', '語言學習', '自然科普' ], currentCategory:'全部種類' } } computed:{ filterBooks(){ return this.products.filter(book => { // 分類條件 const matchCategory = this.currentCategory === '全部種類' || book.category === this.currentCategory // 搜尋條件 const matchKeyword = book.name.includes(this.keyword) const matchKeywordCategory = book.category.includes(this.keyword) // 分類符合 ||而且 (書名符合 或 分類符合) return matchCategory && ( matchKeyword || matchKeywordCategory ) }) } } <div class="header"> <h1 v-show="!showSearch">有聲書</h1> <div class="header-search-box"> <button class="header-searchIcon" @click="showSearch = !showSearch"> <img class="magnifier" src="/icon/searchIcon.png" alt="搜尋按鈕"> </button> <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名"> </div> </div> <div class="category-menu"> <ul> <li v-for="category in categories" :key="category"> <button class="category-btn" @click="currentCategory = category"> {{ category }} </button> </li> </ul> </div> <div v-if="filterBooks.length > 0" class="book-grid"> <div v-for="item in audioProducts" :key="item.id" class="book-card"> <a href="/App/audioPage/information/audioInformation.html" :href="audioInformation.html?id=${item.id}" @click="goDetail(item)"class="book-card__link"><img :src="item.cover"> <div class="book-card_caption"> <h3>{{item.name}}</h3> <p>{{item.introduction}}</p> <p style="color:red; font-size:16px;text-align: right;">{{item.price}}元</p> </div>
+
+
+
+這段程式其實是在做：
+
+依照使用者選擇的分類和搜尋關鍵字，動態篩選要顯示的書籍。
+
+整個流程是：
+
+使用者選分類 或 輸入搜尋文字
+↓
+currentCategory / keyword 改變
+↓
+computed: filterBooks 重新計算
+↓
+畫面自動更新
+第一步：準備分類資料
+categories:[
+    '全部種類',
+    '文學小說',
+    '投資理財',
+    '心理勵志',
+    '語言學習',
+    '自然科普'
+],
+
+currentCategory:'全部種類'
+
+意思：
+
+categories
+↓
+用來產生上面的分類按鈕
+
+currentCategory
+↓
+目前使用者選到哪個分類
+
+一開始：
+
+currentCategory = '全部種類'
+
+代表：
+
+預設顯示全部書籍。
+
+第二步：產生分類按鈕
+<li v-for="category in categories">
+
+第一次：
+
+category = '全部種類'
+
+第二次：
+
+category = '文學小說'
+
+第三次：
+
+category = '投資理財'
+
+然後：
+
+<button
+@click="currentCategory = category">
+
+意思：
+
+按下按鈕後，把目前選到的分類存進：
+
+this.currentCategory
+
+例如：
+
+使用者點：
+
+自然科普
+
+就會：
+
+this.currentCategory = '自然科普'
+第三步：搜尋框
+<input
+v-model="keyword">
+
+例如使用者輸入：
+
+數學
+
+Vue 會自動：
+
+this.keyword = '數學'
+第四步：computed 幫忙篩選
+computed:{
+    filterBooks(){
+
+        return this.products.filter(book=>{
+
+        })
+    }
+}
+
+意思：
+
+從全部商品中，找出符合條件的商品。
+
+條件一：分類符合
+const matchCategory =
+
+this.currentCategory === '全部種類'
+
+||
+
+book.category === this.currentCategory
+
+意思：
+
+如果：
+
+this.currentCategory = '全部種類'
+
+則：
+
+全部都符合
+
+如果：
+
+this.currentCategory = '自然科普'
+
+只有：
+
+book.category === '自然科普'
+
+才符合。
+
+條件二：書名搜尋
+const matchKeyword =
+book.name.includes(this.keyword)
+
+例如：
+
+keyword = 數學
+
+書名：
+
+好玩的數學
+
+結果：
+
+true
+條件三：分類搜尋
+const matchKeywordCategory =
+book.category.includes(this.keyword)
+
+例如：
+
+keyword = 科普
+
+分類：
+
+自然科普
+
+結果：
+
+true
+最後決定是否顯示
+return
+
+matchCategory
+
+&&
+
+(
+matchKeyword
+||
+matchKeywordCategory
+)
+
+翻譯：
+
+分類必須符合
+
+而且
+
+書名或分類至少有一個符合搜尋
+
+例如：
+
+目前分類：自然科普
+
+搜尋：數學
+
+書籍：
+
+名稱：好玩的數學
+分類：自然科普
+
+結果：
+
+分類符合 ✔
+
+書名符合 ✔
+
+=> 顯示
+
+
+你 HTML 這裡寫錯了
+
+你已經：
+
+computed:{
+    filterBooks()
+
+算出了：
+
+filterBooks
+
+但是：
+
+<div v-for="item in audioProducts">
+
+仍然在跑：
+
+audioProducts
+
+所以：
+
+你的搜尋和分類不會生效。
+
+應該改成：
+
+<div v-for="item in filterBooks"
+     :key="item.id"
+     class="book-card">
+
+這樣：
+
+全部書籍
+↓
+filterBooks 篩選
+↓
+只顯示符合條件的書
+
+整個功能才會正常運作。
+
+
+------------------------------------------------------
+A資料 與C 資料綁定，將A與C資料一起傳入B
+
+B要拿取A某資料
+
+你在 data() 裡有：
+
+book:{},
+
+HTML：
+
+<img :src="book.cover" alt="書本封面">
+
+但是在 mounted() 裡你只有：
+
+const bookArticle =
+JSON.parse(
+  localStorage.getItem('currentBook')
+);
+
+this.bookChapters =
+  audioBooks[bookArticle.id];
+
+你沒有把資料放進 this.book 裡面。
+
+所以：
+
+this.book
+
+永遠都是：
+
+{}
+
+因此：
+
+<img :src="book.cover">
+
+其實等於：
+
+<img :src="undefined">
+
+當然不會顯示。
+
+改成這樣：
+mounted(){
+
+  const audio =
+  this.$refs.audio;
+
+  audio.addEventListener(
+    'timeupdate',
+    ()=>{
+
+      if(audio.duration){
+
+        this.progress =
+        (audio.currentTime /
+        audio.duration) * 100;
+
+      }
+
+    }
+  );
+
+  const bookArticle =
+  JSON.parse(
+    localStorage.getItem('currentBook')
+  );
+
+  // ⭐ 加上這行
+  this.book = bookArticle;
+
+  this.bookChapters =
+    audioBooks[bookArticle.id];
+
+  console.log(this.book);
+  console.log(this.book.cover);
+
+}
+
+這時：
+
+this.book
+
+就會變成：
+
+{
+  name:'好玩的數學',
+  cover:'/img/書本封面-01.jpg',
+  ...
+}
+
+HTML：
+
+<img :src="book.cover">
+
+就能正常顯示。
+
+你可以在 Console 再確認：
+
+console.log(this.book);
+console.log(this.book.cover);
+
+應該會看到：
+
+{
+  name:'好玩的數學',
+  ...
+  cover:'/img/書本封面-01.jpg'
+}
+
+以及：
+
+/img/書本封面-01.jpg
+
+其實你已經只差這一行了：
+
+this.book = bookArticle;
+
+因為：
+
+const bookArticle
+↓
+只有 mounted 裡能用
+
+this.book
+↓
+HTML 才能用
+
+這是 Vue 初學者超常踩到的坑，你已經快完全理解資料流了。
+
+是因為他不知道book 在哪裡的關係嗎?
+
+完全正確！
+
+你可以這樣理解：
+
+Vue 在 HTML 裡看到：
+
+<img :src="book.cover">
+
+它就會問：
+
+「請問 book 是誰？」
+
+Vue 會去找：
+
+data(){
+    return{
+        book:{}
+    }
+}
+
+它確實找到了：
+
+book:{}
+
+但是這時候：
+
+book
+
+裡面是：
+
+{}
+
+空物件。
+
+所以：
+
+book.cover
+
+其實等於：
+
+{}.cover
+
+結果：
+
+undefined
+
+而你在 mounted() 裡寫：
+
+const bookArticle =
+JSON.parse(
+    localStorage.getItem('currentBook')
+);
+
+這個：
+
+bookArticle
+
+只是 mounted() 裡面的區域變數。
+
+它就像：
+
+mounted(){
+
+    const fox = '小狐狸';
+
+}
+
+離開 mounted() 後：
+
+{{ fox }}
+
+Vue 會說：
+
+「蛤？誰是 fox？我不認識。」
+
+因為：
+
+const fox
+
+只有 mounted() 裡面能用。
+
+所以你必須：
+
+this.book = bookArticle;
+
+意思是：
+
+「把 bookArticle 的資料放進 Vue 的 book 裡。」
+
+這時：
+
+this.book
+
+就變成：
+
+{
+    name:'好玩的數學',
+    cover:'/img/書本封面-01.jpg',
+    ...
+}
+
+HTML：
+
+<img :src="book.cover">
+
+Vue：
+
+「喔！原來 book 是這個物件。」
+
+於是：
+
+book.cover
+
+就會得到：
+
+"/img/書本封面-01.jpg"
+
+圖片就出來了。
+
+所以可以記成：
+
+const xxx
+↓
+只有 JS 這個函式裡能用
+
+this.xxx
+↓
+整個 Vue 都能用
+↓
+HTML 也能用
+
+這也是為什麼我們常常會寫：
+
+mounted(){
+
+    const data = ...
+
+    this.book = data
+
+}
+
+因為：
+
+區域變數
+↓
+複製到 Vue 的 data 裡
+↓
+畫面才能渲染
+
+你這次其實已經自己發現 Vue 最重要的概念之一了：HTML 只能存取 Vue instance (this) 上的資料。
+
+

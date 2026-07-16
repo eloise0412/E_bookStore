@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/audioPage/audioPlay/audioPage.css">
+    <title>撥放頁面</title>
+    <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <div class="header">
+        <button @click="returnBtn" id="return-btn">
+            <img class="return_img" src="/icon/return.png"  alt="搜尋按鈕">
+        </button>        
+        <h1>撥放頁面</h1>              
+    </div>
+    
+
+
+    <div class="audioPlayer-contain">
+
+            <div class="bookCover">
+                <img :src="book.cover" alt="書本封面" >        
+            </div>
+
+            <div class="introductions">
+            <p>{{book.name}}</p>
+            <p>{{book.introduction}}</p>
+            </div>
+
+            <div class="progress-bar">
+              <input type="range" class="progress" min="0" max="100" v-model="progress" :style="{ background: `linear-gradient(
+                  to right, black 0%,  black ${progress}%, #C3EFE9 ${progress}%, #C3EFE9 100%)`}"
+                  @input="changeProgress">
+              </div>
+
+
+              <audio ref="audio">
+                <source src="/audio/數學內文.mp3" type="audio/mpeg">
+              </audio>
+
+
+              <div class="audioPlayer">
+
+                  <button  @click="prevChapter">  
+                      <i class="fa-solid fa-angle-left"></i>
+                    </button>
+
+              
+                  <button @click="toggleAudio">
+                    <i :class="isPlaying  ? 'fa-solid fa-pause' : 'fa-solid fa-play'"></i>
+                  </button>
+
+
+                  <button @click="nextChapter">
+                    <i class="fa-solid fa-angle-right"></i>
+                  </button>
+
+              </div>
+
+
+              <div class="chapterList">
+                <ul>
+                  <li v-for="(chapter,index) in bookChapters" @click="changeChapter(chapter.start,index)" :key="index"class="chapter-item">
+                  
+                  <span>{{chapter.title}}</span>
+                  <span> {{ formatTime(chapter.start) }}</span>
+                  </li>
+                </ul>
+              </div>
+
+     </div>
+
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="/App/audioPage/audioBook.js"></script>
+<script src="/App/audioPage/audioPlay/audioPage.js"></script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+有聲書筆記  草稿
+
+HTML
+<ul class="chapter-list">
+
+    <li
+        v-for="chapter in chapters"
+
+        @click="changeChapter(chapter.start)"
+
+        class="chapter-item"
+    >
+
+        <span>{{chapter.title}}</span>
+
+        <span>
+            {{ formatTime(chapter.start) }}
+        </span>
+
+    </li>
+
+</ul>
+
+
+methods:{
+
+    changeChapter(time){
+
+        this.$refs.audio.currentTime = time;
+
+        this.$refs.audio.play();
+
+    }
+
+}
+
+-----------
+
+例如：
+
+使用者點：
+
+書籍介紹
+
+↓
+
+changeChapter(31)
+
+↓
+
+audio.currentTime = 31;
+
+↓
+
+直接跳到31秒播放
+
+---------------
+第三步：上一章/下一章
+
+先在 data：
+
+data(){
+
+    return{
+
+        currentChapterIndex:0,
+
+        chapters:[
+
+            {
+                title:'版權宣告',
+                start:0
+            },
+
+            {
+                title:'書籍介紹',
+                start:31
+            },
+
+            {
+                title:'作者說明',
+                start:220
+            }
+
+        ]
+
+    }
+
+}
+
+下一章
+
+nextChapter(){
+
+    if(
+        this.currentChapterIndex <
+        this.chapters.length - 1
+    ){
+
+        this.currentChapterIndex++;
+
+    }
+
+    const chapter =
+      this.chapters[
+      this.currentChapterIndex
+      ];
+
+    this.$refs.audio.currentTime =
+      chapter.start;
+
+}
+
+上一章
+
+prevChapter(){
+
+    if(this.currentChapterIndex > 0){
+
+        this.currentChapterIndex--;
+
+    }
+
+    const chapter =
+      this.chapters[
+      this.currentChapterIndex
+      ];
+
+    this.$refs.audio.currentTime =
+      chapter.start;
+
+}
+
+HTML：
+
+<button @click="prevChapter">
+
+<i class="fa-solid fa-backward-step"></i>
+
+</button>
+
+
+<button @click="nextChapter">
+
+<i class="fa-solid fa-forward-step"></i>
+
+</button>
+第四步（進階）
+
+播放時自動反白目前章節：
+
+► 書籍介紹
+
+例如：
+
+<li
+
+    v-for="(chapter,index) in chapters"
+
+    :class="{
+        active:index === currentChapterIndex
+    }"
+
+>
+
+CSS：
+
+.active{
+
+    color:#84D436;
+
+}
+
+我會建議你的開發順序：
+
+1. 播放器按鈕 ✅
+2. 進度條 ✅
+3. 章節列表切版
+4. 點章節跳轉
+5. 上一章/下一章
+6. 自動反白目前章節
+
+其中：
+
+最重要的一句：
+audio.currentTime = 秒數
+
+只要會這句：
+
+點章節
+上一章
+下一章
+拖曳進度條
+
+全部都做得出來。
+
+所以你的章節播放器核心其實只有一句：
+
+this.$refs.audio.currentTime =
+chapter.start;
+
+
+--------------
+
+
+App/
+├── js/
+│   ├── audioPage.js
+│   └── chapterData.js
+
+chapterData.js
+
+const chapters = [
+    {
+        title:'版權宣告',
+        start:0,
+        duration:'00:00:31'
+    },
+    {
+        title:'書籍介紹',
+        start:31,
+        duration:'00:03:40'
+    }
+];
+
+這裡的：
+
+start: 0
+
+意思是：
+
+這個章節從音檔的第幾秒開始播放。
+
+例如：
+
+const chapters = [
+
+    {
+        title:'版權宣告',
+        start:0
+    },
+版權宣告      從第 0 秒開始
+
+當使用者點：
+
+書籍介紹
+
+時：
+
+audio.currentTime = chapter.start;
+
+實際上就是：
+
+audio.currentTime = 31;
+
+播放器會：
+
+跳到 00:00:31 開始播放
+-------
+
+有 start:0, 為什麼還要 duration:'00:03:40'
+
+duration
+
+代表：
+
+這個章節本身有多長
+
+例如：
+
+duration:'00:03:40'
+
+表示：
+
+這個章節長 3 分 40 秒
+
+通常只是拿來顯示給使用者看：
+
+書籍介紹                00:03:40
+
+就像 Spotify：
+
+歌曲名稱               03:25

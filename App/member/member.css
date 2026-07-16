@@ -1,0 +1,201 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none; 
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+.header{
+  width: 100%;
+  height: 56px;
+  background: #424242;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+     .return-btn{
+        width: 80px;
+        height: 56px;
+        display:block;
+        padding-left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+      
+        .return-btn img{
+          width:40px;
+
+        }
+
+      h1{
+          width: 100%;
+          color: #fff;
+          font-size: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          right: 40px;
+        }       
+
+}
+  
+  
+.memberCard{
+  width: 100%;
+  background-color: aqua;
+  border-radius: 10px;
+  margin-top: 30px;
+
+  .center-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  img{
+    width: 120px;
+  }
+
+  .memberCard-information{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 2;
+    border-radius: 30px;
+    margin-bottom: 20px;
+  }  
+}
+
+
+.feature-menu{
+  width: 100%;
+  background-color: #BDBDBD;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer; 
+  border: none;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  
+
+  .arrow{
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+
+  img{
+    width: 14px;
+    position: relative;
+    top: 14px;
+}
+}
+
+.SignOut-btn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+
+.taBar-menu{
+  width: 100%;
+  background: #424242;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+
+  .taBar-action_menu{        
+      width: 100%;
+      display: flex;
+      justify-content:space-between;
+      flex: 1;
+  }        
+
+      li{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }    
+   
+      a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        position: relative;
+
+      }
+
+      .cart-badge{
+          position: absolute;
+          top: 18px;
+          right: 15px;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: red;
+          color: white;
+          font-size: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+
+      img{
+          display: block;
+          width: 30px;
+          margin-bottom: 5px;
+      }
+}
+

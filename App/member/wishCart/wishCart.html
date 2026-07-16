@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/member/wishCart/wishCart .css">
+    <title>心願清單</title>
+</head>
+<body>
+    
+<div id="app">
+
+    <div class="header">
+        <h1 v-show="!showSearch">心願清單</h1>
+
+        <div class="header-search-box">
+        <button class="header-searchIcon"  @click="showSearch = !showSearch">
+            <img class="magnifier" src="/icon/searchIcon.png"  alt="搜尋按鈕">
+        </button>
+        <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名">
+        </div>
+    </div>
+
+
+
+    <div class="wish-list-contain">
+
+    <div class="wish-book" v-for="(item,index) in filterBooks">
+        <button class="delete_btn" @click="removeCart(index)">x</button>
+        <a href="/App/readingPage/information/book-detail.html" :href="`book-detail.html?id=${item.id}`"
+        @click="goDetail(item)"class="book-card__link"><img :src="item.cover">
+        </a>
+    </div>
+
+    </div>
+
+
+
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="/App/member/wishCart/wishCart.js"></script>
+</body>
+</html>

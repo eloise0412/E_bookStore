@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/audioPage/audioIndex.css">
+    <title>有聲書</title>
+</head>
+<body>
+    <div id="app">
+
+        <div class="header">
+            <h1 v-show="!showSearch">有聲書</h1>
+    
+            <div class="header-search-box">
+            <button class="header-searchIcon"  @click="showSearch = !showSearch">
+                <img class="magnifier" src="/icon/searchIcon.png"  alt="搜尋按鈕">
+            </button>
+            <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名">
+            </div>
+        </div>
+
+
+        <div class="category-menu">
+            <ul>
+                <li v-for="category in categories"
+                    :key="category">
+                <button class="category-btn" @click="currentCategory = category">
+                 {{ category }}
+                </button>
+                </li>
+            </ul>
+          </div>
+        
+        <div v-if="filterBooks.length > 0"  class="book-grid">
+            <div v-for="item in filterBooks" :key="item.id" class="book-card">
+                <!-- 上面最一開始是為了渲染出cart寫<div v-for="item in audioProducts" > -->
+                <a href="/App/readingPage/information/book-detail.html" :href="`audioInformation.html?id=${item.id}`"
+                @click="goDetail(item)"class="book-card__link"><img :src="item.cover">
+
+                <div class="book-card_caption">
+                    <h3>{{item.name}}</h3>
+                    <p>{{item.introduction}}</p>
+                    <p style="color:red; font-size:16px;text-align: right;">{{item.price}}元</p>           
+                </div>
+
+                </a> 
+
+                <div class="book-card_btn">
+                    <button @click="addToWish(item)" class="book-card_wish"><img src="/icon/heart.png" alt="心願單"></button>
+                    <a :href="`../readingPage/information/book-detail.html?id=${item.id}`" @click="goDetail(item)" id="book-card_read"><p style="font-size:16px;display: block;">試讀</p></a>
+                    <button @click="addToCart(item)" class="book-card_shoppingCart"><img src="/icon/grocery-store.png" alt="購物車"></button> 
+                </div>  
+
+            </div>
+           
+        </div>
+        <p  class="nobook">查無此書</p>  
+        
+        
+        <div class="taBar-menu">
+  
+            <ul class="taBar-action_menu">
+                <li><a href="/App/audioPage/audioIndex.html"><img src="/icon/headphoneW.png">有聲書</a></li>
+                <li><a href="/App/home/index.html"><img src="/icon/bookW.png">首頁</a></li>
+            
+                <li><a href="/App/checkOut/cart/shoppingCart.html">
+                  <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
+                  <img style="padding-right: 5px;" src="/icon/cartW.png">購物車</a>
+                </li>
+                
+                <li><a href="/App/bookcase/bookcase.html"><img src="/icon/bookshelfW.png">書櫃</a></li>
+                <li><a href="/App/member/member.html"><img src="/icon/memberW.png">會員</a></li>
+            </ul>
+        </div>
+    
+
+
+
+    </div>
+
+
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/App/audioPage/audioIndex.js"></script>
+
+</body>
+</html>
