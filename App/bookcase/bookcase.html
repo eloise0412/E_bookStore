@@ -10,11 +10,11 @@
 
 <div id="app">
     <div class="header">
-        <h1 v-show="!showSearch">查詢已購買的書</h1>
+        <h1 v-show="!showSearch">書櫃</h1>
 
         <div class="header-search-box">
         <button class="header-searchIcon"  @click="showSearch = !showSearch">
-            <img class="magnifier" src="/icon/searchIcon.png"  alt="搜尋按鈕">
+            <i class="fa-solid fa-magnifying-glass magnifier"></i>
         </button>
         <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名">
         </div>
@@ -31,24 +31,24 @@
     </div>
 
     <div class="taBar-menu">
-  
+   
         <ul class="taBar-action_menu">
-            <li><a href="/App/audioPage/audioIndex.html"><img src="/icon/headphoneW.png">有聲書</a></li>
-            <li><a href="/App/home/index.html"><img src="/icon/bookW.png">首頁</a></li>
+            <li><a href="/App/audioPage/audioIndex.html"><i class="fa-solid fa-headphones"></i>有聲書</a></li>
+            <li><a href="/App/home/index.html"><i class="fa-solid fa-book-open"></i>首頁</a></li>
         
             <li><a href="/App/checkOut/cart/shoppingCart.html">
               <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
-              <img style="padding-right: 5px;" src="/icon/cartW.png">購物車</a>
+              <i class="fa-solid fa-cart-shopping"></i>購物車</a>
             </li>
             
-            <li><a href="#"><img src="/icon/bookshelfW.png">書櫃</a></li>
-            <li><a href="/App/member/member.html"><img src="/icon/memberW.png">會員</a></li>
+            <li><a href="/App/bookcase/bookcase.html"><img src="/icon/caseW.png">書櫃</a></li>
+            <li><a href="/App/member/member.html"><i class="fa-solid fa-user"></i>會員</a></li>
         </ul>
     </div>
 
-
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/bookcase/bookcase.js"></script>
 </body>
 </html>

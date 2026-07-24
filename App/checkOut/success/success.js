@@ -7,11 +7,19 @@ const app={
             localStorage.getItem('cart')
             )|| [],
 
-            buyerInfo:
+            order:
             JSON.parse(
-            localStorage.getItem('buyerInfo')
+            localStorage.getItem('order')
+            )|| {},
+
+
+            saveShippingFee:
+            JSON.parse(
+            localStorage.getItem('saveShippingFee')
             )|| {},
         }
+
+        
 
         
     },
@@ -20,10 +28,13 @@ const app={
     mounted() {
         console.log(
             JSON.parse(
-              localStorage.getItem('buyerInfo')
+              localStorage.getItem('order')
             )
-          )
+          );
           
+          console.log(
+            JSON.parse(localStorage.getItem('saveShippingFee'))
+          );
 
     },
 

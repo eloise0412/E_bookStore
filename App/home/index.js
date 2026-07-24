@@ -5,6 +5,7 @@ const app = {
 
             showSearch:false,
             keyword:'',
+            heartPop:false,
 
             products: [
                 { name:'量子習慣',category:"自然科普", price:350,id:1,author:'作者:克里斯汀',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-01.jpg" },
@@ -57,7 +58,7 @@ const app = {
     },
 
     methods:{
-      addToCart(book){
+      addToCart(book,event){
 
         const existingBook = this.cart.find(
           item => item.name === book.name
@@ -82,41 +83,62 @@ const app = {
           'cart',
           JSON.stringify(this.cart)
         );
-      
+
+        const btnPop = event.currentTarget;
+
+        btnPop.classList.remove("active");
+        void btnPop.offsetWidth;
+        btnPop.classList.add("active");
+
+        btnPop.addEventListener("animationend",()=>{
+          btnPop.classList.remove("active");
+        },{once:true});
+          
       },
         
       addToWish(book){
 
-        const existingWish = this.wish.find(
+        if (!book) return;
+
+        const existingWish = this.wish.findIndex(
           item => item.name === book.name
         );
-
-        if(existingWish){
-          return alert('已加入過');
+      
+        if(existingWish !== -1){
+          this.wish.splice(existingWish, 1);
+        }else{
+          this.wish.push(book);
         }
-
-        this.wish.push(book);
-
+      
         localStorage.setItem(
           'wish',
           JSON.stringify(this.wish)
-        );
+        );   
+
 
       },
 
+      isWish(book) {
 
+        if (!book) return false;
+        return this.wish.some(item => item.id === book.id);
+      },
           goDetail(book){
+            
         
             console.log(book.id);
             localStorage.setItem(
               'currentBook',
               JSON.stringify(book)
-            );          
+            );
+            
+            location.href =
+            `../readingPage/information/book-detail.html?id=${book.id}`;
         }
            
       },
 
-      computed:{
+    computed:{
         filterBooks(){
       
         return this.products.filter(book => {

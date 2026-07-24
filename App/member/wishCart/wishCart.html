@@ -11,11 +11,16 @@
 <div id="app">
 
     <div class="header">
+        
+        <a class="return-btn" href="/App/member/member.html">
+            <i class="fa-solid fa-chevron-left return-icon"></i>
+        </a>
+        
         <h1 v-show="!showSearch">心願清單</h1>
 
         <div class="header-search-box">
         <button class="header-searchIcon"  @click="showSearch = !showSearch">
-            <img class="magnifier" src="/icon/searchIcon.png"  alt="搜尋按鈕">
+            <i class="fa-solid fa-magnifying-glass magnifier"></i>
         </button>
         <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名">
         </div>
@@ -25,12 +30,34 @@
 
     <div class="wish-list-contain">
 
-    <div class="wish-book" v-for="(item,index) in filterBooks">
-        <button class="delete_btn" @click="removeCart(index)">x</button>
-        <a href="/App/readingPage/information/book-detail.html" :href="`book-detail.html?id=${item.id}`"
-        @click="goDetail(item)"class="book-card__link"><img :src="item.cover">
-        </a>
-    </div>
+        <div class="wish-book" v-for="(item,index) in filterBooks">
+
+
+            <a class="book-card__link"
+            
+            href="/App/readingPage/information/book-detail.html" 
+
+            :href="`book-detail.html?id=${item.id}`"
+            
+            @click="goDetail(item)">
+            
+            
+            <img :src="item.cover">
+        
+
+            <div class="book-infor-contain">
+            <p>書名:{{item.name}}</p>
+            <p>{{item.author}}</p>
+            </div>
+
+            </a>
+
+
+            <button class="delete_btn" @click="removeCart(index)">
+                <i class="delete-btn fa-solid fa-trash-can" ></i>
+            </button>
+
+        </div>
 
     </div>
 
@@ -38,6 +65,7 @@
 
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/member/wishCart/wishCart.js"></script>
 </body>
 </html>

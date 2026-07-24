@@ -14,7 +14,7 @@
     
             <div class="header-search-box">
             <button class="header-searchIcon"  @click="showSearch = !showSearch">
-                <img class="magnifier" src="/icon/searchIcon.png"  alt="搜尋按鈕">
+                <i class="fa-solid fa-magnifying-glass magnifier"></i>
             </button>
             <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名">
             </div>
@@ -32,56 +32,72 @@
             </ul>
           </div>
         
-        <div v-if="filterBooks.length > 0"  class="book-grid">
-            <div v-for="item in filterBooks" :key="item.id" class="book-card">
-                <!-- 上面最一開始是為了渲染出cart寫<div v-for="item in audioProducts" > -->
-                <a href="/App/readingPage/information/book-detail.html" :href="`audioInformation.html?id=${item.id}`"
-                @click="goDetail(item)"class="book-card__link"><img :src="item.cover">
+       
+          <div v-if="filterBooks.length > 0" class="book-cart-area">
+             <!-- 上面最一開始是為了渲染出cart寫<div v-for="item in audioProducts" > -->
+            <div v-for="item in filterBooks" :key="item.id" class="book-cart-container mb-24">  
 
-                <div class="book-card_caption">
-                    <h3>{{item.name}}</h3>
-                    <p>{{item.introduction}}</p>
-                    <p style="color:red; font-size:16px;text-align: right;">{{item.price}}元</p>           
+            <div @click="goDetail(item)" class="book-infor">
+
+                <img :src="item.cover">
+
+
+                <div class="container-infor">
+                    <h1>{{item.name}}</h1>
+                    <p class="mb-24">作者:xxxx</p>
+                        
+
+                    
+                    <div class="book-cart-col">
+                            <p class="price" style="font-size: 16px; color: red;">售價:{{item.price}}元</p> 
+                        
+                    <div class="btn-add-contain">    
+                        <div  @click.stop="addToWish(item)" class="add-to-wish" :class="{ activeHeart: isWish(item) }"><i class="fa-solid fa-heart"></i></div>
+                        <div  @click.stop="addToCart(item,$event)" class="add-to-shoppingcart"><i class="fa-solid fa-cart-shopping"></i></div>
+                    </div>
+                    </div>
+
                 </div>
 
-                </a> 
-
-                <div class="book-card_btn">
-                    <button @click="addToWish(item)" class="book-card_wish"><img src="/icon/heart.png" alt="心願單"></button>
-                    <a :href="`../readingPage/information/book-detail.html?id=${item.id}`" @click="goDetail(item)" id="book-card_read"><p style="font-size:16px;display: block;">試讀</p></a>
-                    <button @click="addToCart(item)" class="book-card_shoppingCart"><img src="/icon/grocery-store.png" alt="購物車"></button> 
-                </div>  
-
             </div>
-           
+
+            <div class="btn-container">
+                <a :href="`../readingPage/information/book-detail.html?id=${item.id}`" @click="goDetail(item)">
+                    <span>前往試閱</span><i class="fa-solid fa-play"></i>
+                </a>
+            </div>
+
         </div>
-        <p  class="nobook">查無此書</p>  
+    </div>  
+    <p v-else class="nobook">查無此書</p>
+
         
+    <div class="taBar-menu">
+   
+        <ul class="taBar-action_menu">
+            <li><a href="/App/audioPage/audioIndex.html"><i class="fa-solid fa-headphones"></i>有聲書</a></li>
+            <li><a href="/App/home/index.html"><i class="fa-solid fa-book-open"></i>首頁</a></li>
         
-        <div class="taBar-menu">
-  
-            <ul class="taBar-action_menu">
-                <li><a href="/App/audioPage/audioIndex.html"><img src="/icon/headphoneW.png">有聲書</a></li>
-                <li><a href="/App/home/index.html"><img src="/icon/bookW.png">首頁</a></li>
+            <li><a href="/App/checkOut/cart/shoppingCart.html">
+              <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
+              <i class="fa-solid fa-cart-shopping"></i>購物車</a>
+            </li>
             
-                <li><a href="/App/checkOut/cart/shoppingCart.html">
-                  <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
-                  <img style="padding-right: 5px;" src="/icon/cartW.png">購物車</a>
-                </li>
-                
-                <li><a href="/App/bookcase/bookcase.html"><img src="/icon/bookshelfW.png">書櫃</a></li>
-                <li><a href="/App/member/member.html"><img src="/icon/memberW.png">會員</a></li>
-            </ul>
-        </div>
-    
+            <li><a href="/App/bookcase/bookcase.html"><img src="/icon/caseW.png">書櫃</a></li>
+            <li><a href="/App/member/member.html"><i class="fa-solid fa-user"></i>會員</a></li>
+        </ul>
+    </div>
+
 
 
 
     </div>
 
 
+</div>
     
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
     <script src="/App/audioPage/audioIndex.js"></script>
 
 </body>

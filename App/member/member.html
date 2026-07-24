@@ -11,58 +11,72 @@
 <div id="app">
     <div class="wrap">
         
-        <div class="header">
-            <a class="return-btn" href="/App/index.html">
-                <img class="return_img" src="/icon/return.png"  alt="搜尋按鈕">
+        <div class="header flex-center">
+            <a class="return-btn" href="/App/home/index.html">
+                <i class="fa-solid fa-chevron-left return-icon"></i>
             </a>
-            
-            <h1>會員</h1>              
+        
+            <h1 class="flex-center">會員管理</h1>
+        
+            <div class="header-space">
+            </div>
+                        
         </div>
 
 
 
-    <div class="memberCard">
-        <div class="center-wrap">
-        <img src="/img/bar-code.png" alt="會員條碼">
-        </div>
-
-        <div class="memberCard-information">
-            <h1>會員帳號:{{accountNumber}}</h1>
-        </div>
-
-    </div>
-
-
- 
-        <button class="feature-menu">
-          心願清單 
-          <a href="/App/member/wishCart/wishCart.html" class="arrow">
-          <img src="/icon/right-arrow.png" alt="心願清單">
-          </a>
-        </button>
-        </div>
-
-    <button class="SignOut-btn">登出</button>
-
-
-        <div class="taBar-menu">
-            <ul class="taBar-action_menu">
-                <li><a href="/App/audioPage/audioIndex.html"><img src="/icon/headphoneW.png">有聲書</a></li>
-                <li><a href="/App/home/index.html"><img src="/icon/bookW.png">首頁</a></li>
-            
-                <li><a href="/App/checkOut/cart/shoppingCart.html">
-                  <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
-                  <img style="padding-right: 5px;" src="/icon/cartW.png">購物車</a>
-                </li>
+        <div class="memberCard">
+            <div class="avater">
                 
-                <li><a href="/App/bookcase/bookcase.html"><img src="/icon/bookshelfW.png">書櫃</a></li>
-                <li><a href="/App/member/member.html"><img src="/icon/memberW.png">會員</a></li>
-            </ul>
-        </div>
+            </div>
+            <div class="profile-header">
+                <span class="profile-header-space"></span>
+                <p class="profile-header-infor">你好</p>
+                <p class="profile-header-infor">帳號:xxxxxxxxxxxxx</p>
+                <p class="profile-header-infor">里程:xxxxxxxxxxxxx</p>
+            </div>
+        
+    
+
+            <div class="setting-list-contain">
+            <a href="/App/member/wishCart/wishCart.html" class="feature-menu">
+            心願清單 <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <a href="#" class="feature-menu">
+            設定 <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            
+            <a href="#" class="feature-menu">
+                帳號設定<i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+            </div>
+
+
+     <button class="SignOut-btn">登出</button>
+
     </div>
 
+    
+    <div class="taBar-menu">
+    
+        <ul class="taBar-action_menu">
+            <li><a href="/App/audioPage/audioIndex.html"><i class="fa-solid fa-headphones"></i>有聲書</a></li>
+            <li><a href="/App/home/index.html"><i class="fa-solid fa-book-open"></i>首頁</a></li>
+        
+            <li><a href="/App/checkOut/cart/shoppingCart.html">
+            <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
+            <i class="fa-solid fa-cart-shopping"></i>購物車</a>
+            </li>
+            
+            <li><a href="/App/bookcase/bookcase.html"><img src="/icon/caseW.png">書櫃</a></li>
+            <li><a href="/App/member/member.html"><i class="fa-solid fa-user"></i>會員</a></li>
+        </ul>
+    </div>
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/member/member.js"></script>
 </body>
 </html>

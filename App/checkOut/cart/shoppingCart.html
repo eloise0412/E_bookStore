@@ -10,10 +10,16 @@
 <body>
 <div id="app">
 
-<div class="header">
-    <a class="return-btn" href="../../home/index.html"><img  src="/icon/return.png" alt="返回按鈕"></a>
-    <h1>LOGO</h1>
-</div>
+    <div class="header flex-center">
+        <a class="return-btn" href="/App/home/index.html">
+            <i class="fa-solid fa-chevron-left return-icon"></i>
+        </a>
+
+        <h1 class="flex-center">購買項目</h1>
+
+        <div class="header-space"></div>
+                    
+    </div>
 
 <ul class="shoppingCart_list" >
 
@@ -33,8 +39,8 @@
         @change="saveCart">
 
 
-        <button @click="removeCart(index)" class="delete_btn">
-            <img class="delete_btn_img" src="/icon/garbageCan.png" alt="刪除">
+        <button @click="removeCart(index)" class="delete-contain">
+           <i class="delete-btn fa-solid fa-trash-can" ></i>
         </button>
        
 
@@ -45,17 +51,13 @@
 
 <div class="cart_action">
     <button @click="returnBtn" id="return">繼續購物</button>
-    <button @click="paymentBtn" id="buy" v-bind:disabled="cart.length === 0">前往購買</button>
+    <button @click="paymentBtn" id="paymentBtn" v-bind:disabled="cart.length === 0">前往購買</button>
 </div>
-
-
-
-
-
 
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/checkOut/cart/shoppingCart.js"></script>
 </body>
 </html>

@@ -10,70 +10,73 @@
 
 <div id="app">
   
-  <div class="header">
-    <a class="return-btn" href="/App/checkOut/cart/shoppingCart.html"><img  src="/icon/return.png" alt="返回按鈕"></a>
-    <h1>LOGO</h1>
-  </div>
+    
+  <div class="header flex-center">
 
-<div class="payment">
+    <h1 class="flex-center">logo</h1>
+                
+</div>
 
-    <div class="shipping-list-contain">
+  <div class="payment">
 
-        <h1>配送方式</h1>
-        <label class="shipping-item">
-          <input v-model="shippingFee" type="radio" name="shipping" value="80">
-          宅配 $80
-        </label>
-      
-        <label class="shipping-item">
-          <input v-model="shippingFee" type="radio" name="shipping" value="45" >
-          微笑超商取貨 $45
-        </label>
-      
-   
+      <div class="shipping-list-contain">
+
+          <h2>配送方式</h2>
+          <label class="shipping-item">
+            <input v-model="shippingFee" type="radio" name="shipping" value="80" @change="logistics = '宅配'">
+            宅配 $80
+          </label>
+        
+          <label class="shipping-item">
+            <input v-model="shippingFee" type="radio" name="shipping" value="45" @change="logistics = '超商取貨'" >
+            微笑超商取貨 $45
+          </label>
+        
+    
 
 
-    <form class="order-form">
+        <form class="order-form">
 
-        <h2>購買人資訊</h2>
-        <div class="form-row">
-          <label for="name">收件人姓名：</label>
-          <input v-model="receiverName" id="name" type="text">
-        </div>
-      
-        <div class="form-row">
-          <label for="phone">電話：</label>
-          <input v-model="phone" id="phone" type="tel">
-        </div>
-      
-        <div class="form-row">
-          <label for="address">地址：</label>
-          <input v-model="address" id="address" type="text">
-        </div>
-      
-    </form>
+            <h2>購買人資訊</h2>
+            <div class="form-row">
+              <label for="name">收件人姓名：</label>
+              <input v-model="receiverName" id="name" type="text">
+            </div>
+          
+            <div class="form-row">
+              <label for="phone">電話：</label>
+              <input v-model="phone" id="phone" type="tel">
+            </div>
+          
+            <div class="form-row">
+              <label for="address">地址：</label>
+              <input v-model="address" id="address" type="text">
+            </div>
+          
+        </form>
 
-    <div class="total-list">
-        <h2>付款明細</h2>
+        <div class="total-list">
+            <h2>付款明細</h2>
 
-      <ul class="order-books">
-        <li class="corder-books-list"
-        v-for="(item,index) in cart">
-            <span>{{item.name}}</span>
-            <span>價格{{item.price}},共{{item.quantity}}本</span>
-        </li>
-      </ul>
-      <ul>
-        <li>商品金額$:{{totalprice()}}</li>
-        <li>運費$:{{shippingFee}}</li>
-      </ul>
+          <ul class="order-books">
+            <li class="corder-books-list"
+            v-for="(item,index) in cart">
+                <span>{{item.name}}</span>
+                <span>價格{{item.price}},共{{item.quantity}}本</span>
+          </li>
+        </ul>
 
-      <div class="total">總金額:{{finalPrice}}</div> 
+        <ul>
+          <li class="flex-between"> 商品金額:<span>${{totalprice()}}</span></li> 
+          <li class="flex-between"> 運費:<span>${{shippingFee}}</span></li>
+        </ul>
 
-    </div> 
+        <div class="total">總金額:{{finalPrice}}</div> 
+
+      </div> 
 
     </div>
-  </div>
+</div>
 
   
   <div class="checkout-action">

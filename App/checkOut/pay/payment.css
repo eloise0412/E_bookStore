@@ -1,77 +1,66 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none; 
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-* {
-	box-sizing: border-box;
+img{
+    display:block;
+    max-width:100%;
+}
+
+body{
+    line-height:1.5;
+}
+
+ul{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
   }
 
 #app{
-	width: 100%;
+	min-height: 100vh;
+	background: #24241F;
+	color: #fff;
 }
+
+
 
 .header{
 	width: 100%;
 	height: 56px;
-	background: #424242;
-	display: flex;
-	align-items: center;
+	background: #333232;
+  
+  
 	position: sticky;
 	top: 0;
 	z-index: 10;
+  
+	
+			h1{
+			width: 100%;
+			font-size: 16px;
+			color: #ffffff;	
+		  }       
+  
+		  .header-space{
+			width: 80px;
+		  }
+	
+  }
 
-
-	.return-btn{
-	  width: 40px;
-	  height: 40px;
-	  padding-left: 10px;
-	}
-
-	.return-btn img{
-	  width: 100%;
-	}
-
-}
 
 .payment{
 	width: 100%;
@@ -80,14 +69,14 @@ table {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 96px;
+	padding-bottom: 96px;
 	
 
 	.shipping-list-contain{
 
 		width: 100%;
 		padding: 32px;
-		background-color: bisque;
+		background: #424242;
 	}
 	
 
@@ -99,8 +88,8 @@ table {
 	
 	.shipping-item{
 		display: block;
-		border-bottom:1px solid black ;
-		line-height: 56px;
+
+		line-height: 40px;
 	}
 
 }
@@ -117,7 +106,7 @@ table {
 	.form-row{
 		display: flex;
 		flex-direction: column;
-		line-height: 56px;
+		line-height: 40px;
 
 		
 	}
@@ -139,16 +128,23 @@ table {
 	.corder-books-list{
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: 16px;
+		margin-bottom: 8px;
+	}
+
+	.flex-between{
+		display: flex;
+		justify-content: space-between;
 	}
 
 	li{
-		line-height: 56px;
+		line-height: 40px;
 	}
 
 	.total{
-		border-top:1px solid black ;
+		border-top:1px solid #ffffff ;
 		line-height: 32px;
+		display: flex;
+		justify-content: end;
 	}
 
 }
@@ -160,18 +156,19 @@ table {
 	z-index: 10;
 	display: flex;
 	justify-content: space-around;
-    padding-top: 10px;
-	background: #424242;
+	background: #333232;
+
 
 
 	#checkout-btn,#return-btn{
 		width: 100%;
-		height: 56px;
+		height: 76px;
 		border: none;
     	cursor:pointer;
 		outline:none;
 		background:none;
 		font-size: 26px;
+		color: #ffffff;
 	}
 }
 

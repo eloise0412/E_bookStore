@@ -7,11 +7,15 @@ const app = {
         localStorage.getItem('cart')
       )||[],
       
+      
       shippingFee:0,
 
         receiverName: '',
         phone: '',
-        address: ''
+        address: '',
+        logistics:'',
+
+        
 
     }
     
@@ -19,7 +23,7 @@ const app = {
 
   mounted() {
     const data = JSON.parse(
-      localStorage.getItem('buyerInfo')    
+      localStorage.getItem('order')
     )
 
 
@@ -40,41 +44,57 @@ const app = {
   },
 
 
-  saveInfo() {
-    const buyerInfo = {
-      name: this.receiverName,
-      phone: this.phone,
-      address: this.address
-      
-    }
+    orderNumber(){
+      return "BK" + Date.now().toString().slice(-8);
+    },
+
+
+  saveShippingFee(){
+    console.log("saveShippingFee 執行了");
     localStorage.setItem(
-      'buyerInfo',
-      JSON.stringify(buyerInfo)
-    )
+      'saveShippingFee',
+      JSON.stringify({
+        shippingFee: this.shippingFee,
+        finalPrice: this.finalPrice,
+        logistics: this.logistics,
+      })
+    );
   },
 
   submitOrder() {
-  if(!this.receiverName.trim()){
-    alert('請輸入姓名');
-    return;
-  }
-  if(!this.phone.trim()){
-    alert('請輸入電話');
-    return;
-  }
-  if(!this.address.trim()){
-    alert('請輸入地址');
-    return;
-  }
-  if(this.shippingFee === 0){
-    alert('請選擇運送方式');
-    return;
-  }
-    this.saveInfo()
-    console.log(this.receiverName)
-    console.log(this.phone)
-    console.log(this.address)
+    if(!this.receiverName.trim()){
+      alert('請輸入姓名');
+      return;
+    }
+    if(!this.phone.trim()){
+      alert('請輸入電話');
+      return;
+    }
+    if(!this.address.trim()){
+      alert('請輸入地址');
+      return;
+    }
+    if(this.shippingFee === 0){
+      alert('請選擇運送方式');
+      return;
+    }
+    const order = {
+      orderId: this.orderNumber(),
 
+      name: this.receiverName,
+      phone: this.phone,
+      address: this.address,
+
+      logistics: this.logistics,
+      shippingFee: this.shippingFee,
+      finalPrice: this.finalPrice,
+      
+      cart: this.cart
+  };
+  localStorage.setItem(
+      "order",
+      JSON.stringify(order)
+  );
     location.href =
     '../success/success.html';
   },

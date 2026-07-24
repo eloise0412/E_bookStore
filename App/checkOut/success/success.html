@@ -10,34 +10,60 @@
     
 <div id="app">
         
-    <div class="header">
-        <a class="return-btn" href="/App/home/index.html"><img  src="/icon/return.png" alt="返回按鈕"></a>
-        <h1>LOGO</h1>
-      </div>
+    <div class="header flex-center">        
+    </div>
 
 
 <div class="order-success-container"> 
-    <h2>購買成功!</h2>
+    <div class="success-massage-contain">
 
-     <div class="order-list">   
-    <ul>
-        <li>購買人資訊</li>
-        <li>姓名:{{buyerInfo.name}}</li>
-        <li>電話:{{buyerInfo.phone}}</li>
-        <li>地址:{{buyerInfo.address}}</li>
-        <li>取貨方式:</li>
-        <li>運費:</li>
-        <li>總金額:</li>
-    </ul>
+        <h2>購買成功</h2>
+        <i class="fa-solid fa-circle-check  check fade-in-element"></i>
     </div>
 
 
-    <div v-for="item in cart" class="order-cart">
-        <img :src="item.cover" alt="商品圖片">
-        <h3 class="name">書本名稱{{item.name}}</h3> 
+    <div class="order-list">  
+
+        <div class="list-contain">
+            <h3>訂單資訊</h3>
+
+            <ul>
+                <li>訂單編號:{{order.orderId}}</li>
+                <li>取貨方式:{{saveShippingFee.logistics}}</li>
+                <li>運費:{{saveShippingFee.shippingFee}}</li>
+                <li>總金額:{{saveShippingFee.finalPrice}}</li>
+            </ul>
+
+            <h3>購買人資訊</h3>  
+
+            <ul>
+            <li>姓名:{{order.name}}</li>
+            <li>電話:{{order.phone}}</li>
+            <li>地址:{{order.address}}</li>
+            </ul>
+   
+
+ 
+
+    <div class="ordwr-book-contain">
+        <h3>本次購買書籍</h3>
+        <div v-for="item in cart" class="order-cart">
+            <img :src="item.cover" alt="商品圖片">
+
+            <div class="cart-colum">
+            <p class="name">{{item.name}}</p>
+            <p class="name">NT$:{{item.price}}</p> 
+            <p class="name">數量:{{item.quantity}}</p>
+            </div> 
+        </div>
     </div>
+</div>
+
 
 </div> 
+
+
+
 
     <div @click="indexBtn" class="return-action">
         <button id="return-index"  @click="clearOrder()">回到主頁</button>
@@ -46,6 +72,7 @@
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/checkOut/success/success.js"></script>
 </body>
 </html>

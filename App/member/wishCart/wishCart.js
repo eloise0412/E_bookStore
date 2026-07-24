@@ -8,6 +8,8 @@ const app = {
               localStorage.getItem('wish')
             ) || [],
 
+    
+
             showSearch:false,
             keyword:'',
             

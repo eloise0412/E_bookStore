@@ -24,12 +24,23 @@ a{
     color:inherit;
 }
 
+i{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
 
+.mb-24{
+  margin-bottom: 24px;
+}
 
+#app{
+  width: 100%;
+  background: #24241F;
+}
 
 .header{
   height: 56px;
-  background: #424242;
+  background: #333232;
   display: flex;
   position: relative;
   justify-content: center;
@@ -59,8 +70,9 @@ a{
           }
 
           .magnifier{
-            width: 100%;
-          }
+            font-size: 16px;
+            color:#ffffff;
+            }
 
           .header-input-box{
             width: 250px;
@@ -75,10 +87,10 @@ a{
 
 
 .carousel-slider_container {
-          
-    margin: 0 0 24px 0;      
+           
     overflow: hidden;     
-    position: relative;  
+    position: relative;
+      
   
 
     .carousel_img-wrapper {
@@ -91,8 +103,6 @@ a{
         }
 
       .carousel_slide img {
-
-
         display:block;
         object-fit:cover;
         }
@@ -131,103 +141,104 @@ a{
       gap:8px;
       }
 
-    li{ 
-      border:1px solid black;
-      }
 
     .category-btn{
       padding:16px 24px;
       border: none; 
       cursor: pointer;
       font-size: 16px;
-      color: black;
+      color:white;
+      border: solid #87A0C3 1px;
+      border-radius: 8px;
+      background: #24241F;
     }
 
 
 }
 
+.book-cart-area{
+  padding:8px;
+  padding-bottom: 104px;
+}
 
-.book-grid{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content:center;
-        padding: 4px;
-        gap: 10px;
-        margin-bottom: 88px;
+.book-cart-container{
+  background: #424242;
+  border-radius: 8px;
 
-    
-     .book-card{
-         width:180px;
-         overflow: hidden;
-         box-shadow: 5px 5px 10px #E0E3DA;
-         display:flex;
-         flex-direction:column;
-         
-         .book-card__link{
-           width:180px;
-           text-decoration: none;
-           color: inherit;    
-    
-           img{
-            width:180px;
-            height:220px;
-            display: block;
-            }
-          } 
-    
-    
-         .book-card_caption{
-          padding: 6px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-          flex:1;
-            
-            h3{
-              margin-top:8px;
-              font-size:20px;
-              font-weight: bold;
-            }  
-            p{
-              margin-top:8px;
-              font-size:16px;
-            }
-          }
+  
+  .book-infor{
+
+      display: flex;
+      align-items: center;
+
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-top: 8px;
 
 
+      gap: 16px;
+  }
 
-              .book-card_btn{
-               display:flex;
-               height: 50px;
-               margin-top:auto;   
-              }
+  h1{
+    font-size: 20px;
+    color: white;
+  }
 
-              .book-card_wish,.book-card_shoppingCart{
-               width:60px;
-               display:flex;
-               align-items:center;
-               justify-content:center;
-               padding: 6px 14px;
-               flex: 1;
-               border:1px solid;
-              }
-            
-              #book-card_read{
-               width:60px;
-               display:flex;
-               text-decoration: none;
-               align-items:center;
-               justify-content:center;      
-               border:1px solid;
-               color: black;
-              }
+  p{color: white;
+  }
 
-              img{
-                width: 100%;
-              }
-           
-    }
+  img{
+      width: 104px;
+      height: 132px;
+      background-color: black;
+      /* border-radius: 8px 0 0 0; */
+  }
 
+  .container-infor{
+      flex: 1;
+  }
+
+
+  .book-cart-col{
+      display: flex;
+      align-items: center;
+  }
+
+  .btn-add-contain{
+      display: flex;
+      gap: 16px;
+      padding-left:64px ;
+      color: white;
+  }
+  
+  span{
+    font-size: 18px;
+  }
+
+  i{
+      font-size: 16px;
+      color: white;
+      
+  }
+
+  .btn-container{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top:8px ;
+      padding-bottom: 8px;
+      color: white;
+  }
+
+  .container-play{
+
+      background: none;      /* 移除背景色 */
+      border: none;          /* 移除邊框 */
+      outline: none;         /* 移除點擊時的虛線框或外框 */
+      cursor: pointer;       /* 將滑鼠指標改為手型 */
+      color: inherit;        /* 文字顏色繼承父層 */
+  }
 }
 
 .nobook{
@@ -238,72 +249,88 @@ a{
 
 
 
-
-.taBar-menu{
-  width: 100%;
-  background: #424242;
-  display: flex;
-  justify-content: space-around;
+.taBar-action_menu {
   position: fixed;
   bottom: 0;
-  z-index: 10;
+  display: flex;
+  width: 100%;
 
-
-    /* .logo{
-      height: 56px;   
-      display: flex;
-      align-items: center;
-  } */
   
-
-  .taBar-action_menu{        
-      width: 100%;
-      display: flex;
-      justify-content:space-between;
-      flex: 1;
-  }        
-
-      li{
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }    
-   
-      a{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-        color: #fff;
-        text-decoration: none;
-        font-size: 12px;
-        position: relative;
-
-      }
-
-      .cart-badge{
-          position: absolute;
-          top: 18px;
-          right: 15px;
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          background: red;
-          color: white;
-          font-size: 12px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-      }
-
-
-      img{
-          display: block;
-          width: 30px;
-          margin-bottom: 5px;
-      }
+li {
+  flex: 1;              
+  list-style: none;
 }
 
+a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;         
+  padding: 16px 0;
+  box-sizing: border-box;
+
+  background: #333232;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+
+}
+
+.cart-badge{
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+img{
+  display: block;
+  width: 26px;
+  margin-bottom: 5px;
+}
+
+}
+
+.add-to-wish i{
+  transition:.1s;
+}
+
+.add-to-wish.activeHeart i{
+  color:#ff4d6d;
+}
+
+.add-to-shoppingcart.active i{
+  animation:carPop.3s ;
+  color:#6D88AE;
+  
+}
+
+@keyframes carPop{
+  0%{
+    transform: scale(1);
+}
+
+50%{
+    transform: scale(1.2);
+}
+
+100%{
+    transform: scale(1);
+}
+
+}
 
 
     
