@@ -3,6 +3,7 @@ const app = {
     data(){  
         return{
 
+            isLogin: false,
 
             cart:
             JSON.parse(
@@ -17,7 +18,26 @@ const app = {
 
         console.log(this.cart);
     
-    }
+    },
+
+    methods: {
+        logout() {
+    
+            localStorage.removeItem("isLogin");
+    
+            location.href ="/App/loginPage/login.html";
+    
+        },
+
+        login(){
+            location.href ="/App/loginPage/login.html";
+        }
+    },
+    created() {
+
+        this.isLogin = localStorage.getItem("isLogin") === "true";
+
+        },
 
 
 }  

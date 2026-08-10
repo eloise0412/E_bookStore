@@ -33,11 +33,14 @@ const app = {
           
           goDetail(book){
         
-            console.log(book.id);
             localStorage.setItem(
               'currentBook',
               JSON.stringify(book)
             );          
+
+            location.href =
+            `/App/bookDetailPage/detail.html?id=${book.id}`;
+;
         }
        },
 

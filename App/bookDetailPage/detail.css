@@ -1,0 +1,238 @@
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+body{
+    line-height:1.5;
+    background: #24241F;
+    height: 100%;
+}
+
+ul{
+    list-style:none;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+
+  font: inherit;
+  line-height: inherit;
+
+  background: none;
+}
+
+
+.btn-reset{
+  border: none;           /* 移除邊框 */
+  background: none;
+  padding: 0;
+  margin: 0;
+  outline: none;          /* 移除點擊時的預設藍色光暈 */
+  cursor: pointer;        /* 將游標改為手形（可選，適合按鈕行為） */
+
+}
+
+.text-white{
+  color: #ffffff;
+}
+
+
+.action-btn{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  width:126px;
+
+  padding:16px 0 16px;
+}
+
+.btn-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tsize-16{
+  font-size: 16px;
+}
+
+
+#app{
+  color: #ffffff;
+}
+
+
+
+.header{
+  height: 56px;
+  background: #333232;
+
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+
+  .return-btn{
+      width: 72px;
+      height: 56px;
+  
+  }
+  
+  .return-icon{
+          font-size: 24px;
+
+          position: relative;
+          top: 16px;
+          left: 16px;
+      }
+          
+        .header-space{
+          width: 72px;
+          height: 56px;
+        }
+  
+}
+
+
+  
+  
+.book-article{
+  padding: 0 64px;
+  margin-bottom: 96px;
+
+  .book-img{
+    width: 100%;
+    padding: 32px 0 8px 0;    
+  }
+  
+  .book-img img{
+    width: 240px;
+  }
+  
+  .book-name{
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  
+  .book-info{
+   line-height: 2;
+  }
+}  
+
+
+.button-flex{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 72px;
+
+  display: flex;
+
+  background: #333232;
+}
+
+
+.action-btn{
+  flex: 1;
+
+  text-decoration: none;
+  color: white;
+
+  border: none;
+  cursor: pointer;
+
+  position: relative;
+
+
+
+    .btn-column{
+      gap: 4px;
+    }
+    
+    .btn-icon{
+      font-size: 22px;
+    }
+    
+    .btn-text{
+      font-size: 12px;
+    }
+
+    .cart-badge{
+      position: absolute;
+      top: 3px;
+      right: 40px;
+    
+      width: 18px;
+      height: 18px;
+    
+    
+      border-radius: 50%;
+      background: red;
+    
+      font-size: 10px;
+    }
+    
+    .tabar-icon{
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+    
+    
+  
+}
+
+
+
+
+.wish-btn .wish-icon{
+  transition:.1s;
+}
+
+.wish-btn.activeHeart .wish-icon{
+  color:#ff4d6d;
+}
+
+.shoppingCart-btn.active{
+  animation:carPop.3s ;
+}
+
+@keyframes carPop{
+  0%{
+    transform: scale(1);
+}
+
+50%{
+    transform: scale(1.2);
+}
+
+100%{
+    transform: scale(1);
+}
+
+}

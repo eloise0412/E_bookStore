@@ -1,0 +1,336 @@
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+body{
+  line-height:1.5;
+  background: #24241F;
+  height: 100%;
+}
+
+ul{
+  list-style:none;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+  display: block;
+}
+
+.cursor{
+  cursor: pointer;       /* 將滑鼠指標改為手型 */
+  }
+
+.mb-24{
+  margin-bottom: 24px;
+  }
+
+.text-white{
+  color: #ffffff;
+  }
+
+.btn-reset{
+  background: none;      /* 移除背景色 */
+  border: none;          /* 移除邊框 */
+  outline: none;         /* 移除點擊時的虛線框或外框 */
+  cursor: pointer;       /* 將滑鼠指標改為手型 */
+  color: inherit;        /* 文字顏色繼承父層 */
+  }
+
+.flex-column{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  }
+
+.flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+.text-white{
+  color: #ffffff;
+  }
+
+.tsize-16{
+  font-size: 16px;
+  }
+
+.tsize-22{
+  font-size: 22px;
+  }
+
+#app{
+  color: #ffffff;
+  }
+
+
+.header{
+  height: 56px;
+  background: #333232;
+
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+
+.header-search-btn{
+  width: 20px;
+  height: 20px;
+
+  display: block;
+
+  position: absolute;                 
+  right: 24px;         
+  top: 50%;           
+
+  transform: translateY(-50%);
+}
+
+
+.header-search-input{
+  width: 250px;
+  height: 30px;
+  text-align: center;
+
+  background:none;
+  border:none;
+  outline:none;
+  color:inherit;
+  font:inherit;
+}
+}
+
+
+
+.carousel-slider {           
+  overflow: hidden;     
+  position: relative;
+
+    /* 允許上下滑網頁，但水平滑動交給輪播 */
+  touch-action: pan-y;
+
+.carousel-img-contain {
+  display: flex;      
+  transition: transform 0.5s ease-in-out;
+
+  
+  }
+
+  .carousel-img-item{
+    min-width:100%;
+    }
+
+  .carousel-img {
+    display:block;
+    object-fit:cover;
+    }
+
+
+
+.carousel-slider-button-group {
+    position: absolute;
+    bottom: 3px;
+    left: 176px;
+    gap: 8px;
+    z-index: 9;
+  }  
+
+
+.dotBtn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  }
+}
+
+
+.category-menu{
+  margin:0 auto;
+  margin-bottom: 32px;
+
+
+  .category-list{ 
+    
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
+
+    }
+
+
+  .category-btn{
+    padding:16px 24px;
+    border: none; 
+    border: solid #87A0C3 1px;
+    border-radius: 8px;
+    background: #24241F;
+  }
+
+
+}
+
+.book-list{
+  padding:8px;
+  padding-bottom: 104px;
+  }
+
+.book-cart{
+  background: #424242;
+  border-radius: 8px;
+
+
+  .book-content{
+
+    display: flex;
+    align-items: center;
+    padding:8px 16px 0 16px;
+    gap: 16px;
+  }
+
+  .book-name{
+    font-size: 20px;
+  }
+
+  .book-img{
+      width: 104px;
+      height: 132px;
+  }
+
+  .book-info{
+      flex: 1;
+  }
+
+  .book-cart-column{
+      display: flex;
+      align-items: center;
+  }
+
+  .book-price{
+    color:#ff4d6d;
+    }
+
+  .action-btn{
+      display: flex;
+      gap: 16px;
+      margin-left: auto;
+      padding-right: 16px;
+
+  }
+
+  .detail-actions{
+      width: 100%;
+      padding:8px 0 8px 8px;
+  }
+
+  .detail-btn-text{
+  font-size: 18px;
+  }
+}
+
+
+.filter-nobook{
+display: flex;
+justify-content: center;
+font-size: 24px;
+}
+
+
+
+
+.wish-btn .book-action-icon{
+transition:.1s;
+}
+
+.wish-btn.activeHeart .book-action-icon{
+color:#ff4d6d;
+}
+
+.shoppingcart-btn.active .book-action-icon{
+animation:carPop.3s ;
+color:#6D88AE;
+
+}
+
+@keyframes carPop{
+0%{
+  transform: scale(1);
+}
+
+50%{
+  transform: scale(1.2);
+}
+
+100%{
+  transform: scale(1);
+}
+
+}
+
+
+
+.taBar-list{
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  background: #333232;
+
+
+  .taBar-item {
+    flex: 1;              
+    }
+
+  .taBar-link {
+    width: 100%;
+    height: 100%;         
+    padding: 16px 0;
+
+    position: relative;
+
+  }
+
+  .cart-badge{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    border-radius: 50%;
+    background: red;
+    font-size: 12px;
+    }
+
+
+  .bookcase-img{
+    width: 26px;
+    margin-bottom: 5px;
+    }
+
+
+    .taBar-icon{
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+}
+
+
+
+    
+ 

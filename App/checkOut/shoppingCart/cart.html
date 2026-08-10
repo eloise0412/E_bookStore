@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/checkOut/shoppingCart/cart.css">
+    <title>購物車</title>
+
+</head>
+<body>
+<div id="app">
+
+    <div class="header flex-center">
+        <a class="return-btn" @click="returnBtn">
+            <i class="fa-solid fa-chevron-left return-icon"></i>
+        </a>
+
+        <h1 class="header-title tsize-16 flex-center">購買項目</h1>
+
+        <div class="header-space"></div>
+                    
+    </div>
+
+<div v-if="isLogin">   
+
+<ul class="shoppingCart_list" >
+
+    <li v-if="cart.length === 0" class="empty-cart flex-center">尚未加入商品</li>
+
+    <template v-else>
+    <li v-for="(item,index) in cart" class="shoppingCart_grid_contant">
+
+    <div class="book-cover">    
+    <img :src="item.cover" alt="商品圖片">
+    </div>
+
+        <h3 class="book-name tsize-16">{{item.name}}</h3>
+        
+        <p  class="book-price tsize-16">NT${{item.price}}</p>
+        <input class="book-amount tsize-16" type="number" min="1" v-model.number="item.quantity"
+        @change="saveCart">
+
+
+        <button @click="removeCart(index)" class="delete-contain btn-reset cursor tsize-16">
+           <i class="delete-btn fa-solid fa-trash-can" ></i>
+        </button>
+       
+
+    </li>
+    </template>
+</ul>
+
+</div>
+
+<div v-else>
+    <h2 class="flex-center mt-24">請先登入</h2>
+
+</div>
+
+<div class="cart_action flex-center">
+    <button @click="returnBtn" id="return" class="btn-reset cursor flex-center">繼續購物</button>
+    <button @click="paymentBtn" id="paymentBtn" class="btn-reset cursor flex-center" v-bind:disabled="cart.length === 0|| !isLogin">前往購買</button>
+</div>
+
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
+<script src="/App/checkOut/shoppingCart/cart.js"></script>
+</body>
+</html>

@@ -13,6 +13,8 @@ img{
 
 body{
     line-height:1.5;
+    background: #24241F;
+    height: 100%;
 }
 
 ul{
@@ -24,14 +26,15 @@ a{
   color:inherit;
 }
 
-i{
-  font-size: 24px;
-  margin-bottom: 5px;
+.btn-reset{
+  background: none;      /* 移除背景色 */
+  border: none;          /* 移除邊框 */
+  outline: none;         /* 移除點擊時的虛線框或外框 */
+  cursor: pointer;       /* 將滑鼠指標改為手型 */
+  color: inherit;        /* 文字顏色繼承父層 */
 }
 
-.font-color{
-	color: #ccc;
-}
+
 
 .flex-center{
   display: flex;
@@ -39,9 +42,24 @@ i{
   align-items: center;
 }
 
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tsize-16{
+  font-size: 16px;
+}
+
+.mt-24{
+  margin-top: 24px;
+}
+
+
 #app{
-  min-height: 100vh;
-  background: #24241F;
+  color: #ffffff;
 }
 
 .header{
@@ -49,153 +67,117 @@ i{
   height: 56px;
   background: #333232;
 
-  .return-btn{
-      width: 80px;
-      height: 56px;
-  
-  }
-  
-      i{
-          font-size: 24px;
-          position: relative;
-          top: 16px;
-          left: 16px;
-      }
-  
-  
-          h1{
-          width: 100%;
-          font-size: 16px;
-          color: #ffffff;
-  
-  
-        }       
 
-        .header-space{
-          width: 80px;
-        }
+    .header-title{
+      width: 100%;
+    }       
 }
   
 .memberCard{
   width: 100%;
   border-radius: 10px;
+
   display:flex;
-  flex-direction:column;
   align-items:center;
+  flex-direction:column;
+
+    .avater{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #333232;
+    
+      margin:24px 0;
+      overflow:hidden;
+      z-index: 10;
+    }
+    
+    .profile-header{
+      margin-bottom: 16px;
+    }
+
+    .profile-info{
+      padding:0 24px 0 24px ;
+      text-align: center
+    }
 
 }
 
-.avater{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: black;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  overflow:hidden;
-  z-index: 10;
-  margin-top: 24px;
-}
 
-.profile-header{
+
+.setting-list{
   width: 100%;
-  height:160px;
-  background-color: #424242;
-  margin-top: -72px;
-  margin-bottom: 80px;
 
-}
-
-.profile-header-space{
-  width: 100%;
-  height: 50px;
-  display: block;
-}
-
-.profile-header-infor{
-  padding:0 24px 0 24px ;
-}
-
-.setting-list-contain{
-  width: 100%;
-}
-
-.feature-menu{
-
-  padding: 8px 10px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  cursor: pointer; 
-  border: none;
-
-  margin-bottom: 4px;
+  .setting-item{
+    padding: 8px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: solid 1px #333232 ;
   
-  background-color: #424242;
-
+  }
 }
 
-.SignOut-btn{
+
+
+.action-btn{
+  width: 100%;
+  height: 48px;
+
+  padding: 10px 0;
+  background:#2B5596;
+
+  font-size: 16px;
+}
+
+
+.taBar-list {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 0;
-}
-
-
-.taBar-action_menu {
   position: fixed;
   bottom: 0;
-  display: flex;
-  width: 100%;
+  background: #333232;
+  
 
   
-li {
-  flex: 1;              
-  list-style: none;
-}
+  .taBar-item {
+    flex: 1;              
+  }
 
-a {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  .taBar-link {
+    width: 100%;
+    height: 100%;         
+    padding: 16px 0;
 
-  width: 100%;
-  height: 100%;         
-  padding: 16px 0;
-  box-sizing: border-box;
+    position: relative;
 
-  background: #333232;
-  color: #fff;
-  text-decoration: none;
-  position: relative;
+  }
 
-}
+  .cart-badge{
+    width: 18px;
+    height: 18px;
 
-.cart-badge{
-  position: absolute;
-  top: 8px;
-  right: 15px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: red;
-  color: white;
-  font-size: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    position: absolute;
+
+    top: 8px;
+    right: 15px;
+
+    border-radius: 50%;
+    background: red;
+
+    font-size: 12px;
+
+  }
 
 
-img{
-  display: block;
-  width: 26px;
-  margin-bottom: 5px;
-}
+  .bookcase-img{
+    width: 26px;
+    margin-bottom: 5px;
+  }
 
+  .taBar-icon{
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
 }

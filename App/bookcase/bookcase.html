@@ -9,42 +9,89 @@
 <body>
 
 <div id="app">
-    <div class="header">
-        <h1 v-show="!showSearch">書櫃</h1>
 
-        <div class="header-search-box">
-        <button class="header-searchIcon"  @click="showSearch = !showSearch">
-            <i class="fa-solid fa-magnifying-glass magnifier"></i>
+    <div class="header flex-center">
+        <h1 class="header-title flex-center tsize-16" 
+            v-show="!showSearch">書櫃</h1>
+
+        <div class="header-search">
+
+        <button class="header-search-btn cursor btn-reset tsize-16" 
+         @click="showSearch = !showSearch">
+
+  <i class="fa-solid fa-magnifying-glass magnifier tsize-16 text-white"></i>
         </button>
-        <input class="header-input-box" v-show="showSearch" type="text" v-model="keyword" placeholder="搜尋書名">
+
+        <input class="header-search-input" 
+         v-show="showSearch" type="text" 
+         v-model="keyword" placeholder="搜尋書名">
         </div>
     </div>
 
-    <div class="bookcase-list-contain">
 
-        <div class="case-book" v-for="(item,index) in filterBooks">
-            <button class="delete_btn" @click="removeCart(index)">x</button>
-            <a href="/App/readingPage/information/book-detail.html" :href="`book-detail.html?id=${item.id}`"
-            @click="goDetail(item)"class="book-card__link"><img :src="item.cover">
-            </a>
+    
+    <div v-if="isLogin">   
+    <div class="bookcase-list-wrapper mt-24">
+
+        <div class="bookcase-list" v-for="(item,index) in filterBooks">
+
+        <button class="delete-btn btn-reset cursor" 	
+            @click="removeCart(index)">x</button>
+
+            <div class="book-link" @click="goDetail(item)">
+
+            <img class="book-img" :src="item.cover">
+
+            </div>
+
         </div>
+
     </div>
 
+</div>
+
+<div v-else>
+    <h2 class="flex-center mt-24">請先登入</h2>
+
+</div>
+    
     <div class="taBar-menu">
-   
-        <ul class="taBar-action_menu">
-            <li><a href="/App/audioPage/audioIndex.html"><i class="fa-solid fa-headphones"></i>有聲書</a></li>
-            <li><a href="/App/home/index.html"><i class="fa-solid fa-book-open"></i>首頁</a></li>
+        <ul class="taBar-list">
+            <li class="taBar-item">
+            <a class="taBar-link flex-column" 
+            href="/App/audioPage/audioIndex/index.html">
+            <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
+
+
+            <li class="taBar-item">
+            <a class="taBar-link flex-column"
+            href="/App/ebookPage/index.html">
+            <i class="fa-solid fa-book-open taBar-icon"></i>首頁</a></li>
+
         
-            <li><a href="/App/checkOut/cart/shoppingCart.html">
-              <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
-              <i class="fa-solid fa-cart-shopping"></i>購物車</a>
-            </li>
+            <li class="taBar-item">
+            <a class="taBar-link flex-column" 	
+            href="/App/checkOut/shoppingCart/cart.html">
+            <span class="cart-badge flex-center" 
+            v-if="cart.length > 0"> {{ cart.length }}</span>
+            <i class="fa-solid fa-cart-shopping taBar-icon"></i>購物車</a></li>
+
+
             
-            <li><a href="/App/bookcase/bookcase.html"><img src="/icon/caseW.png">書櫃</a></li>
-            <li><a href="/App/member/member.html"><i class="fa-solid fa-user"></i>會員</a></li>
+            <li class="taBar-item">
+            <a class="taBar-link flex-column"
+             href="/App/bookcase/bookcase.html">
+            <img class="bookcase-img" src="/icon/caseW.png">書櫃</a></li>
+
+
+            <li class="taBar-item">
+            <a class="taBar-link flex-column" 
+            href="/App/member/member.html">
+            <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
         </ul>
     </div>
+
+
 
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 

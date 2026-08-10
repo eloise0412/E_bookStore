@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+body{
+    line-height:1.5;
+	background: #24241F;
+	height: 100%;
+}
+
+ul{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+
+  .btn-column{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+
+ .cursor{
+	cursor: pointer;       /* 將滑鼠指標改為手型 */
+  }
+
+  .btn-reset{
+	background: none;      /* 移除背景色 */
+	border: none;          /* 移除邊框 */
+	outline: none;         /* 移除點擊時的虛線框或外框 */
+	color: inherit;        /* 文字顏色繼承父層 */
+  }
+
+  .tsize-16{
+	font-size: 16px;
+  }
+
+  .mt-24{
+	margin-top: 24px;
+  }
+
+#app{
+
+   color: #ffffff;
+}
+
+.header{
+	width: 100%;
+	height: 56px;
+	background: #333232;
+  
+  
+	position: sticky;
+	top: 0;
+	z-index: 10;
+  
+  
+	.return-btn{
+		width: 80px;
+		height: 56px;
+	
+	}
+	
+		.return-icon{
+			font-size: 24px;
+			position: relative;
+			top: 16px;
+			left: 16px;
+		}
+	
+	
+			.header-title{
+			width: 100%;
+		  }       
+  
+		  .header-space{
+			width: 80px;
+		  }
+	
+  }
+
+.shoppingCart_list{
+	padding: 24px;
+
+
+	.book-cover img{
+		width: 130px; 
+		border:1px solid #2B5596;
+	}
+
+	.shoppingCart_grid_contant{
+		display: grid;
+		grid-template-columns:104px 1fr 48px ;
+		grid-template-rows: auto 18px 56px;
+
+		min-width: 272px;
+
+	
+		grid-template-areas:
+        "cover name delete"
+		"cover bookprice delete"
+		"cover book-amount delete";
+
+		gap:8px;
+
+		padding:8px;
+		margin-bottom: 24px;
+
+		background: #333232;
+
+		border-radius: 8px;
+
+		border:1px solid #2B5596;
+
+	}
+
+	.book-cover{
+		grid-area:cover;
+	  }
+	  
+	  .book-name{
+
+		grid-area:name;
+
+		padding-top: 20px;
+
+	  }
+
+	  .book-price{
+		grid-area:bookprice;
+
+		color: red;
+	  }
+
+	  .book-amount{
+		grid-area:book-amount;
+
+		width: 32px;
+		height: 24px;
+
+		color: #ccc;
+
+
+		background: #1E1E1A;
+
+        border: none;
+
+	  }
+	  
+
+	  .delete-contain{
+
+		width: 40px;
+		height: 40px;
+
+		grid-area:delete;
+		justify-self: end;  /*justify-content:grid版*/
+		
+		background: #986598;
+		border-radius: 8px;
+
+	   }
+
+	   .delete-contain:hover{
+		background-color: red;
+	   }
+
+	   .delete-btn{
+		color: #ccc;
+	   }
+	   
+}
+
+
+.cart_action{
+	width:100%;
+	background: #333232;
+
+
+	position: fixed;
+	bottom: 0;
+	z-index: 10;
+
+
+	  #return{
+		height: 76px;
+		
+		width: 100%;
+		font-size: 26px;
+		color: #ffffff;	
+	  }
+
+	  #paymentBtn{
+		height: 76px;
+
+		background:none;
+
+		width: 100%;
+
+		font-size: 26px;
+
+		color: #ffffff;	
+		
+	  }
+}
+
+#paymentBtn:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+

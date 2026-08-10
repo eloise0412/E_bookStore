@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/ebookPage/readingPage/readingPage.css">
+    <title>閱讀頁</title>
+</head>
+<body>
+    <div id="app">
+
+        <div class="header">
+            <a class="return-btn" @click="returnBtn">
+                <i class="fa-solid fa-chevron-left return-icon"></i>
+            </a>
+
+            <h1 class="header-title flex-center text-white tsize-16">{{book.name}}</h1>
+
+            <div class="header-space"></div>
+                        
+        </div>
+
+
+        <!-- Loading -->
+        <div class="loading" v-if="isLoading">
+            <img src="/icon/loding.gif" alt="Loading">
+        </div>
+        
+        <div v-else>
+        <div class="book-article">{{book.article}}</div>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
+<script src="/App/ebookPage/readingPage/readingPage.js"></script> 
+</html>

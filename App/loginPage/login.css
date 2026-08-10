@@ -1,0 +1,137 @@
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+body{
+    line-height:2.5;
+    background: #24241F;
+    height: 100%;
+}
+
+ul{
+    list-style:none;
+}
+
+
+a{
+  text-decoration:none;
+  color:inherit;
+  display: block;
+}
+
+input{
+    height: 32px;
+    
+}
+
+.cursor{
+  cursor: pointer;       /* 將滑鼠指標改為手型 */
+}
+
+.mb-24{
+  margin-bottom: 24px;
+}
+.mt-24{
+    margin-top: 24px;
+}
+
+
+.btn-reset{
+  background: none;      /* 移除背景色 */
+  border: none;          /* 移除邊框 */
+  outline: none;         /* 移除點擊時的虛線框或外框 */
+  color: inherit;        /* 文字顏色繼承父層 */
+}
+
+
+
+.flex-column{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.flex-center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+
+.text-white{
+  color: #ffffff;
+}
+
+.tsize-16{
+font-size: 16px;
+}
+
+#app{
+    width: 100%;
+}
+.login {
+    height: 100dvh;
+    position: relative;
+    overflow: hidden;
+  
+
+  }
+  
+  .login-form {
+    width: 284px;
+    height: 424px;
+  
+    background-color: #ffffff;
+    opacity: 0.5;
+    border-radius: 8px;
+  
+    padding: 32px;
+  
+    box-sizing: border-box;
+  }
+
+.form-title{
+    display: flex;
+    align-items: center;
+}
+
+.login-field{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.login-action{
+    width: 120px;
+    height: 48px;
+
+
+    color: #ffffff;
+    background: #2c5597;
+}
+
+
+.background-picture{
+    width: 380px;
+    height: 100vh;
+    background-image:url("/img/bkPicture.png") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    position: absolute;
+    inset: 0;
+    z-index: -10;
+
+}
+

@@ -13,6 +13,8 @@ img{
 
 body{
     line-height:1.5;
+	background: #24241F;
+	height: 100%;
 }
 
 ul{
@@ -30,10 +32,27 @@ a{
 	align-items: center;
   }
 
+  .btn-column{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+  }
+
+ .cursor{
+	cursor: pointer;       /* 將滑鼠指標改為手型 */
+  }
+
+  .btn-reset{
+	background: none;      /* 移除背景色 */
+	border: none;          /* 移除邊框 */
+	outline: none;         /* 移除點擊時的虛線框或外框 */
+	color: inherit;        /* 文字顏色繼承父層 */
+  }
+  
+
 #app{
-	min-height: 100vh;
-	background: #24241F;
-	color: #fff;
+	color: #ffffff;
 }
 
 
@@ -49,30 +68,31 @@ a{
 	z-index: 10;
   
 	
-			h1{
-			width: 100%;
-			font-size: 16px;
-			color: #ffffff;	
-		  }       
-  
-		  .header-space{
-			width: 80px;
-		  }
-	
+	.logo{
+		width: 100%;
+		font-size: 16px;
+		color: #ffffff;	
+	  }       
+
+	  .header-space{
+		width: 80px;
+	  }
+
   }
 
+  
 
 .payment{
 	width: 100%;
+
 	margin-top: 24px;
 	padding: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+
+
 	padding-bottom: 96px;
 	
 
-	.shipping-list-contain{
+	.shipping-list{
 
 		width: 100%;
 		padding: 32px;
@@ -80,13 +100,10 @@ a{
 	}
 	
 
-	h1{
-		margin-bottom: 16px;
-	}
 
 	
 	
-	.shipping-item{
+	.list-item{
 		display: block;
 
 		line-height: 40px;
@@ -99,11 +116,12 @@ a{
 .order-form{
 	margin-top: 40px;
 
-	h2{
+	.list-title{
 		margin-bottom: 16px;
 	}
 
 	.form-row{
+
 		display: flex;
 		flex-direction: column;
 		line-height: 40px;
@@ -121,13 +139,14 @@ a{
 .total-list{
 	margin-top: 32px;
 
-	h2{
+	list-title{
 		margin-bottom: 16px;
 	}
 
-	.corder-books-list{
+	.books-list{
 		display: flex;
 		justify-content: space-between;
+
 		margin-bottom: 8px;
 	}
 
@@ -136,13 +155,15 @@ a{
 		justify-content: space-between;
 	}
 
-	li{
+	.list-item{
 		line-height: 40px;
 	}
 
 	.total{
 		border-top:1px solid #ffffff ;
+
 		line-height: 32px;
+		
 		display: flex;
 		justify-content: end;
 	}
@@ -151,11 +172,14 @@ a{
 
 .checkout-action{
 	width: 100%;
+
 	position: fixed;
 	bottom: 0;
 	z-index: 10;
+
 	display: flex;
 	justify-content: space-around;
+
 	background: #333232;
 
 
@@ -163,11 +187,9 @@ a{
 	#checkout-btn,#return-btn{
 		width: 100%;
 		height: 76px;
-		border: none;
-    	cursor:pointer;
-		outline:none;
-		background:none;
+
 		font-size: 26px;
+
 		color: #ffffff;
 	}
 }

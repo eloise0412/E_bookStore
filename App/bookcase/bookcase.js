@@ -3,6 +3,8 @@ const app = {
     data(){  
         return{
 
+          isLogin: false,
+
             bookshelf:
             JSON.parse(
               localStorage.getItem('bookshelf')
@@ -17,8 +19,16 @@ const app = {
             ) || [],
         
         }
+        
 
        },
+       created() {
+
+        this.isLogin = localStorage.getItem("isLogin") === "true";
+
+        },
+
+        
        methods:{
 
         removeCart(index){
@@ -34,11 +44,13 @@ const app = {
           
           goDetail(book){
         
-            console.log(book.id);
             localStorage.setItem(
               'currentBook',
               JSON.stringify(book)
             );          
+
+            location.href =
+            `../bookDetailPage/detail.html?id=${book.id}`;
         }
        },
 

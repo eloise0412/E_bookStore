@@ -12,69 +12,122 @@
     <div class="wrap">
         
         <div class="header flex-center">
-            <a class="return-btn" href="/App/home/index.html">
-                <i class="fa-solid fa-chevron-left return-icon"></i>
-            </a>
+
+            <h1 class="header-title flex-center tsize-16">會員管理</h1>
         
-            <h1 class="flex-center">會員管理</h1>
-        
-            <div class="header-space">
-            </div>
                         
         </div>
 
 
-
+        <div v-if="isLogin"> 
         <div class="memberCard">
             <div class="avater">
                 
             </div>
             <div class="profile-header">
                 <span class="profile-header-space"></span>
-                <p class="profile-header-infor">你好</p>
-                <p class="profile-header-infor">帳號:xxxxxxxxxxxxx</p>
-                <p class="profile-header-infor">里程:xxxxxxxxxxxxx</p>
+                <p class="profile-info">你好</p>
+                <p class="profile-info">帳號:xxxxxxxxxxxxx</p>
+                <p class="profile-info">里程:xxxxxxxxxxxxx</p>
             </div>
         
     
 
-            <div class="setting-list-contain">
-            <a href="/App/member/wishCart/wishCart.html" class="feature-menu">
-            心願清單 <i class="fa-solid fa-chevron-right arrow"></i>
+            <div class="setting-list">
+            <a class="setting-item cursor" href="/App/member/wishCart/wishCart.html" >
+                心願清單 
+            <i class="fa-solid fa-chevron-right arrow"></i>
             </a>
 
-            <a href="#" class="feature-menu">
-            設定 <i class="fa-solid fa-chevron-right arrow"></i>
+            <a class="setting-item cursor" href="#">
+                設定 
+            <i class="fa-solid fa-chevron-right arrow"></i>
             </a>
 
             
-            <a href="#" class="feature-menu">
-                帳號設定<i class="fa-solid fa-chevron-right arrow"></i>
-                </a>
+            <a class="setting-item cursor" href="#">
+                帳號設定
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
+
+            <a class="setting-item cursor" href="#">
+                常見問題
+                <i class="fa-solid fa-chevron-right arrow"></i>
+            </a>
             </div>
 
+            
 
-     <button class="SignOut-btn">登出</button>
+
+     <button class="action-btn flex-center btn-reset" @click="logout">登出</button>
 
     </div>
+    </div>
 
+    <div v-else >
+        <div class="memberCard">
+            <div class="avater">
+                
+            </div>
+            <div class="profile-header">
+                <span class="profile-header-space"></span>
+                <p class="profile-infor">尚未登入</p>
+            </div>
+            <div class="setting-list">
+    
+                <a class="setting-item cursor" href="#">
+                    設定 
+                <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+    
+                <a class="setting-item cursor" href="#">
+                    常見問題
+                    <i class="fa-solid fa-chevron-right arrow"></i>
+                </a>
+                </div>
+    
+         </div>
+        <button class="action-btn flex-center mt-24 btn-reset" @click="login">立即登入</button>
+    </div>
     
     <div class="taBar-menu">
     
-        <ul class="taBar-action_menu">
-            <li><a href="/App/audioPage/audioIndex.html"><i class="fa-solid fa-headphones"></i>有聲書</a></li>
-            <li><a href="/App/home/index.html"><i class="fa-solid fa-book-open"></i>首頁</a></li>
+        <ul class="taBar-list">
+            <li class="taBar-item">
+                <a  class="taBar-link flex-column" 
+                href="/App/audioPage/audioIndex/index.html">
+                <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
+
+
+            <li class="taBar-item">
+                <a  class="taBar-link flex-column" 
+                href="/App/ebookPage/index.html">
+                    <i class="fa-solid fa-book-open taBar-icon"></i>首頁</a></li>
         
-            <li><a href="/App/checkOut/cart/shoppingCart.html">
-            <span v-if="cart.length > 0" class="cart-badge"> {{ cart.length }}</span>
-            <i class="fa-solid fa-cart-shopping"></i>購物車</a>
+            <li class="taBar-item">
+                <a class="taBar-link flex-column" 
+                href="/App/checkOut/shoppingCart/cart.html">
+
+            <span class="cart-badge flex-center text-white" 
+            v-if="cart.length > 0" > {{ cart.length }}</span>
+
+            <i class="fa-solid fa-cart-shopping taBar-icon"></i>購物車</a>
             </li>
             
-            <li><a href="/App/bookcase/bookcase.html"><img src="/icon/caseW.png">書櫃</a></li>
-            <li><a href="/App/member/member.html"><i class="fa-solid fa-user"></i>會員</a></li>
+            <li class="taBar-item">
+                <a class="taBar-link flex-column"
+                href="/App/bookcase/bookcase.html">
+                    <img class="bookcase-img" src="/icon/caseW.png">書櫃</a></li>
+
+            <li class="taBar-item"> 
+                <a class="taBar-link flex-column"
+                 href="/App/member/member.html">
+                    <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
         </ul>
     </div>
 </div>
+</div>
+
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/member/member.js"></script>

@@ -25,19 +25,6 @@ const app={
     },
 
 
-    mounted() {
-        console.log(
-            JSON.parse(
-              localStorage.getItem('order')
-            )
-          );
-          
-          console.log(
-            JSON.parse(localStorage.getItem('saveShippingFee'))
-          );
-
-    },
-
     methods: {
         clearOrder(){
             // 先取得目前書櫃
@@ -69,7 +56,21 @@ const app={
             localStorage.removeItem('cart')
     },
     indexBtn(){
-        location.href='../../home/index.html';
+        location.href='/App/eBookPage/index.html';
+    }
+},
+mounted() {
+    console.log("cart =", localStorage.getItem("cart"));
+    console.log("order =", localStorage.getItem("order"));
+
+    const data = JSON.parse(
+        localStorage.getItem("order")
+    );
+
+    if (data) {
+        this.receiverName = data.name;
+        this.phone = data.phone;
+        this.address = data.address;
     }
 }
     

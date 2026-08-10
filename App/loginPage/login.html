@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/App/loginPage/login.css">
+    <title>登入</title>
+</head>
+<body>
+    <div id="app">
+        <div class="login flex-center">
+
+            <div class="login-form">
+
+                <div class="form-title">
+                <img class="loge" src="" alt="logo" >
+                <h1 class="wellcome">歡迎回來</h1>
+                </div>   
+
+                <div class="login-field">
+                <label for="Email"></label>
+                <input class="login-input" type="email" v-model="email">
+                </div>
+                
+                <div class="login-field">
+                <label for="password">password</label>
+                <input class="login-input" type="password" v-model="password" >
+                </div>
+
+
+                <div class="login-footer flex-column mt-24">
+                <button class="login-action btn-reset" @click="login">登入</button>
+                <a href="#" class="password-forget mb-24">忘記密碼</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="background-picture">
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
+    <script src="/App/loginPage/login.js"></script>
+</body>
+</html>

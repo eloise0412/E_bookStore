@@ -13,62 +13,60 @@
     <div class="header flex-center">        
     </div>
 
-
-<div class="order-success-container"> 
-    <div class="success-massage-contain">
-
-        <h2>購買成功</h2>
-        <i class="fa-solid fa-circle-check  check fade-in-element"></i>
+    <div class="order-success"> 
+        <div class="success-massage flex-column">
+            <h2 class="success-title flex-center">購買成功</h2>
+            <i class="fa-solid fa-circle-check  check fade-in-element"></i>
     </div>
 
 
-    <div class="order-list">  
+        <div class="order-list">  
 
-        <div class="list-contain">
-            <h3>訂單資訊</h3>
-
-            <ul>
-                <li>訂單編號:{{order.orderId}}</li>
-                <li>取貨方式:{{saveShippingFee.logistics}}</li>
-                <li>運費:{{saveShippingFee.shippingFee}}</li>
-                <li>總金額:{{saveShippingFee.finalPrice}}</li>
-            </ul>
-
-            <h3>購買人資訊</h3>  
-
-            <ul>
-            <li>姓名:{{order.name}}</li>
-            <li>電話:{{order.phone}}</li>
-            <li>地址:{{order.address}}</li>
-            </ul>
+            <div class="list-contain">
+    
+                <h3 class="list-title">訂單資訊</h3>
+                <ul class="list-info">
+                    <li class="list-item">訂單編號:{{order.orderId}}</li> 
+                    <li class="list-item">取貨方式:{{order.logistics }}</li>   
+                    <li class="list-item">運費:{{order.shippingFee}}</li>
+                    <li class="list-item">總金額:{{ order.finalPrice}}</li>
+                </ul>
+                <h3 class="list-title">購買人資訊</h3>  
+                <ul class="list-info">
+                <li class="list-item">姓名:{{order.name}}</li>
+                <li class="list-item">電話:{{order.phone}}</li>
+                <li class="list-item">地址:{{order.address}}</li>
+                </ul>
+    
    
-
+            </div>
  
 
-    <div class="ordwr-book-contain">
+    <div class="order-book-container">
         <h3>本次購買書籍</h3>
         <div v-for="item in cart" class="order-cart">
-            <img :src="item.cover" alt="商品圖片">
+            <img class="order-img" :src="item.cover" alt="商品圖片">
 
             <div class="cart-colum">
-            <p class="name">{{item.name}}</p>
-            <p class="name">NT$:{{item.price}}</p> 
-            <p class="name">數量:{{item.quantity}}</p>
+                <p class="name">{{item.name}}</p>
+                <p class="name">NT$:{{item.price}}</p> 
+                <p class="name">數量:{{item.quantity}}</p>
             </div> 
         </div>
+
     </div>
+
+    </div> 
+
+    <div @click="indexBtn" class="return-action flex-center">
+        <button id="return-index" class="cursor btn-reset"  @click="clearOrder()">回到主頁</button>
+    </div>
+
 </div>
 
+<div>
 
-</div> 
-
-
-
-
-    <div @click="indexBtn" class="return-action">
-        <button id="return-index"  @click="clearOrder()">回到主頁</button>
-    </div>
-
+</div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
