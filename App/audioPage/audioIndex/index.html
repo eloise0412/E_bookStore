@@ -21,6 +21,22 @@
         </div>
 
 
+        <div class="carousel-slider mb-24"> 
+            <div class="carousel-img-contain"> 
+                <div class="carousel-img-item"><img  class="carousel-img" src="/img/banner-01.jpg"> </div>
+                <div class="carousel-img-item"> <img class="carousel-img" src="/img/banner-02.jpg"> </div>  
+    
+            </div>
+    
+          
+          <div class="carousel-slider-button-group">
+            <button class="dotBtn cursor" data-index="0"></button>
+            <button class="dotBtn cursor" data-index="1"></button>
+          </div>
+    
+        </div>   
+
+
         <div class="category-menu">
             <ul class="category-list">
 
@@ -46,13 +62,13 @@
 
 
                 <div class="info-contain">
-                    <h1 class="book-name tsize-16">{{item.name}}</h1>
-                    <p class="book-author tsize-16 mb-24">作者:xxxx</p>
+                    <h1 class="book-name">{{item.name}}</h1>
+                    <p class="book-author tsize-16 mb-24">作者:{{item.author}}</p>
                         
 
                     
                     <div class="book-cart-colum">
-                            <p class="book-price tsize-16">售價:{{item.price}}元</p> 
+                            <p class="book-price tsize-16">NT:${{item.price}}元</p> 
                         
                     <div class="action-btn">    
                         <div class="wish-btn" 
@@ -98,7 +114,7 @@
             <li class="taBar-item">
                 <a class="taBar-link flex-column" 
                 href="/App/ebookPage/index.html">
-                <i class="fa-solid fa-book-open taBar-icon"></i>首頁</a></li>
+                <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
         
             <li class="taBar-item">
                 <a class="taBar-link flex-column"

@@ -32,7 +32,7 @@ const app={
             JSON.parse(localStorage.getItem('bookshelf')) || []
 
             // 把購物車的書加入書櫃
-            this.cart.forEach(book=>{
+            this.order.cart.forEach(book=>{
 
             // 檢查書櫃裡有沒有同一本
             const existBook = bookshelf.find(
@@ -60,18 +60,11 @@ const app={
     }
 },
 mounted() {
-    console.log("cart =", localStorage.getItem("cart"));
-    console.log("order =", localStorage.getItem("order"));
+ 
+    console.log("order =", this.order);
 
-    const data = JSON.parse(
-        localStorage.getItem("order")
-    );
+    this.clearOrder();
 
-    if (data) {
-        this.receiverName = data.name;
-        this.phone = data.phone;
-        this.address = data.address;
-    }
 }
     
 

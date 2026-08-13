@@ -94,7 +94,7 @@ i{
     .search-show{
       width: 236px;
       height: 30px;
-
+      flex: 1;
       
     }
 

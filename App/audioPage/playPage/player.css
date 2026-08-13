@@ -140,7 +140,7 @@ button{
 
     width:100%;
 
-    margin-top: 488px;
+    margin-top: 462px;
 
     padding: 40px 0 16px 0;
 
@@ -154,12 +154,11 @@ button{
     width: 100px;
     height: 50px;
 
-    background: linear-gradient(#24241F,#2B5596);
-    border: 1px solid #2B5596;
+    .forward-btn{
+      font-size: 48px;
+      color: #2B5596;
+    }
 
-
-    border-radius: 8px;
-    box-shadow: 5px 1px 30px -10px #2B5596;
   }
   
 

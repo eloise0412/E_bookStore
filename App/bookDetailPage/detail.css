@@ -236,3 +236,83 @@ a{
 }
 
 }
+
+
+
+
+@media (min-width: 440px) {
+
+  .button-flex{
+  .shoppingCart-btn{
+  .cart-badge {
+    right: 48px;
+}}}
+
+}
+
+@media (min-width: 500px) {
+
+  
+  .button-flex{
+  .shoppingCart-btn{
+  .cart-badge {
+    right: 62px;
+}}}
+
+}
+
+@media(min-width: 560px){
+
+
+  .button-flex{
+    .shoppingCart-btn{
+    .cart-badge {
+      right: 68px;
+  }}}
+}
+
+
+@media (min-width: 640px) {
+
+
+  .button-flex{
+    .shoppingCart-btn{
+    .cart-badge {
+      right: 82px;
+  }}}
+    
+}
+
+@media (min-width: 686px) {
+ 
+  .button-flex{
+    .shoppingCart-btn{
+    .cart-badge {
+      right: 90px;
+  }}}
+}
+
+
+@media (min-width: 768px) {
+
+ 
+  .button-flex{
+    .shoppingCart-btn{
+      .cart-badge {
+        right: 104px;
+}}}
+
+}
+
+
+
+@media (min-width: 834px) {
+
+
+.button-flex{
+  .shoppingCart-btn{
+  .cart-badge {
+    right: 116px;
+}}}
+}   
+ 

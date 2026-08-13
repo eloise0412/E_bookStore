@@ -27,6 +27,7 @@ a{
   display: block;
 }
 
+
 .cursor{
   cursor: pointer;       /* 將滑鼠指標改為手型 */
   }
@@ -142,8 +143,12 @@ a{
 
 .carousel-slider-button-group {
     position: absolute;
-    bottom: 3px;
-    left: 176px;
+    display: flex;
+
+    top: 93%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
     gap: 8px;
     z-index: 9;
   }  
@@ -160,26 +165,27 @@ a{
 
 
 .category-menu{
-  margin:0 auto;
+
   margin-bottom: 32px;
 
 
   .category-list{ 
     
     display:flex;
-    justify-content:center;
+    justify-content: space-around;
     flex-wrap:wrap;
-    gap:8px;
 
     }
 
 
+
   .category-btn{
     padding:16px 24px;
-    border: none; 
     border: solid #87A0C3 1px;
     border-radius: 8px;
     background: #24241F;
+
+    margin-bottom: 16px;
   }
 
 
@@ -190,10 +196,10 @@ a{
   padding-bottom: 104px;
   }
 
+
 .book-cart{
   background: #424242;
   border-radius: 8px;
-
 
   .book-content{
 
@@ -233,9 +239,8 @@ a{
 
   }
 
-  .detail-actions{
-      width: 100%;
-      padding:8px 0 8px 8px;
+  .detail-btn{
+      padding:8px;
   }
 
   .detail-btn-text{
@@ -330,7 +335,138 @@ color:#6D88AE;
 
 }
 
+@media (min-width: 440px) {
+  .category-menu{
+    .category-list{ 
+      .category-btn{
+        padding:16px 32px;
+    }
+  }}
+
+  .taBar-menu{
+  .taBar-item{
+  .cart-badge {
+    right: 20px;
+}}}
+
+}
+
+@media (min-width: 476px) {
+
+.category-menu{
+  .category-list{ 
+    .category-btn{
+      padding:24px 40px;
+  }
+}}
+  
+.taBar-menu{
+  .taBar-item{
+  .cart-badge {
+    right: 22px;
+}}}
+
+}
+
+@media(min-width: 560px){
+  .category-menu{
+    .category-list{ 
+      .category-btn{
+        padding:24px 56px;
+    }
+  }}
+
+  .taBar-menu{
+    .taBar-item{
+    .cart-badge {
+      right: 32px;
+  }}}
+}
 
 
+@media (min-width: 640px) {
+
+  .category-menu{
+    .category-list{ 
+      .category-btn{
+        padding:24px 56px;
+    }
+  }}
+
+  .taBar-menu{
+    .taBar-item{
+    .cart-badge {
+      right: 45px;
+  }}}
     
+}
+
+@media (min-width: 686px) {
+  .category-menu{
+    .category-list{ 
+      .category-btn{
+        padding:24px 72px;
+    }
+  }}
+
+}
+
+
+@media (min-width: 768px) {
+
+  .category-menu{
+    .category-list{ 
+      .category-btn{
+    padding: 24px 88px;
+}
+}}
+
+.book-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  }
+
+.book-cart{
+  width: 360px;
+
+.detail-btn{
+  padding:8px;
+}
+
+}
+
+.taBar-menu{
+  .taBar-item{
+  .cart-badge {
+    right: 52px;
+}}}
+
+}
+
+
+
+@media (min-width: 834px) {
+  .category-menu{
+    .category-list{ 
+      .category-btn{
+    padding: 24px 96px;
+}
+}}
+
+
+.book-cart{
+  width: 400px;
+
+.detail-btn{
+  padding:8px;
+}
+}
+
+.taBar-menu{
+  .taBar-item{
+  .cart-badge {
+    right: 58px;
+}}}
+}   
  

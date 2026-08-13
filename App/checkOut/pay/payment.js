@@ -150,7 +150,7 @@ const app = {
       returnBtn() {
 
           location.href =
-              '../shoppingCart/Cart.html';
+              '../shoppingCart/cart.html';
       }
   }
 }

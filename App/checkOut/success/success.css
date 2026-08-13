@@ -107,24 +107,20 @@ padding: 32px;
 		.list-item{
 			margin-bottom: 8px;
 		}
+
+		.order-cart{
+			display: flex;
+			align-items: center;
+			background-color: #333232;
+			gap: 8px;
+			margin:16px 0;
+			}
+	
+			.order-img{
+				width: 90px;
+				margin: 5px;
+			}
 	}
-
-
-
-.order-cart{
-display: flex;
-align-items: center;
-background-color: #333232;
-border-bottom: 1px solid #638A84;
-gap: 8px;
-
-
-	.order-img{
-		width: 90px;
-		margin: 5px;
-	}
-
-}
 
 
 .return-action{

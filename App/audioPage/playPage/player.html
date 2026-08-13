@@ -66,17 +66,17 @@
               <div class="audio-player flex-center">
 
                   <button class="player-btn" @click="prevChapter">  
-                      <i class="fa-solid fa-angle-left"></i>
+                      <i class="fa-solid fa-angle-left forward-btn"></i>
                     </button>
 
               
                   <button class="player-btn" @click="toggleAudio">
-                    <i :class="isPlaying  ? 'fa-solid fa-pause' : 'fa-solid fa-play'"></i>
+                    <i :class="isPlaying  ? 'fa-solid fa-pause' : 'fa-solid fa-play'" style=" color: #2B5596; font-size: 48px;"></i>
                   </button>
 
 
                   <button class="player-btn" @click="nextChapter">
-                    <i class="fa-solid fa-angle-right"></i>
+                    <i class="fa-solid fa-angle-right forward-btn"></i>
                   </button>
 
               </div>

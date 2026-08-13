@@ -7,11 +7,11 @@ const app = {
             heartPop:false,
 
             audioProducts : [
-                { name:'好玩的數學',category:'自然科普',price:350,id:23,author:'作者:克里斯汀',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-01.jpg" },
-                { name:'理財手扶梯',category:'投資理財',price:350,id:24,author:'作者:艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-01.jpg" },
-                { name:'浴室',category:'文學小說',price:350,id:25,author:'作者:艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-01.jpg" },
-                { name:'韓文雜誌',category:'語言學習',price:350,id:26,author:'作者:艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-01.jpg" },
-                { name:'多多葛的50個練習',category:'心理勵志',price:350,id:27,author:'作者:艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-01.jpg" },
+                { name:'好玩的數學',category:'自然科普',price:350,id:23,author:'克里斯汀',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-23.jpg" },
+                { name:'理財手扶梯',category:'投資理財',price:350,id:24,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-24.jpg" },
+                { name:'浴室',category:'文學小說',price:350,id:25,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-25.jpg" },
+                { name:'韓文雜誌',category:'語言學習',price:350,id:26,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-26.jpg" },
+                { name:'多多葛的50個練習',category:'心理勵志',price:350,id:27,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/img/書本封面-27.jpg" },
             ],
 
 
@@ -157,3 +157,67 @@ const app = {
 }
 
 Vue.createApp(app).mount('#app');
+
+
+const carousel = document.querySelector('.carousel-slider');
+const wrapper = document.querySelector('.carousel-img-contain');
+const dots = document.querySelectorAll('.dotBtn');
+
+let startX = 0;
+let currentIndex = 0;
+
+
+// 移動到指定圖片
+function moveCarousel() {
+
+  wrapper.style.transform =
+    `translateX(-${currentIndex * 100}%)`;
+
+}
+
+
+// 點擊圓點
+dots.forEach(dotBtn => {
+
+  dotBtn.addEventListener('click', () => {
+
+    currentIndex = Number(dotBtn.dataset.index);
+
+    moveCarousel();
+
+  });
+
+});
+
+
+// 手指開始觸碰
+carousel.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+
+// 手指離開
+carousel.addEventListener('touchend', (e) => {
+  const endX = e.changedTouches[0].clientX;
+  const distance = endX - startX;
+
+
+  // 往左滑
+  if (distance < -50) {
+    if (currentIndex < dots.length - 1) {
+      currentIndex++;
+    }
+  }
+
+
+  // 往右滑
+  if (distance > 50) {
+    if (currentIndex > 0) {
+      currentIndex--;
+    }
+  }
+
+
+  moveCarousel();
+
+});

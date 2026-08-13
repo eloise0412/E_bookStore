@@ -38,23 +38,24 @@
                 <li class="list-item">地址:{{order.address}}</li>
                 </ul>
     
-   
+                <div class="order-book-container">
+                    <h3 class="list-title">本次購買書籍</h3>
+                    <div v-for="item in order.cart" class="order-cart">
+                        <img class="order-img" :src="item.cover" alt="商品圖片">
+            
+                        <div class="cart-colum">
+                            <p class="name">{{item.name}}</p>
+                            <p class="name">NT:${{item.price}}</p> 
+                            <p class="name">數量:{{item.quantity}}</p>
+                        </div> 
+                    </div>
+            
+                </div>
+
             </div>
  
 
-    <div class="order-book-container">
-        <h3>本次購買書籍</h3>
-        <div v-for="item in cart" class="order-cart">
-            <img class="order-img" :src="item.cover" alt="商品圖片">
 
-            <div class="cart-colum">
-                <p class="name">{{item.name}}</p>
-                <p class="name">NT$:{{item.price}}</p> 
-                <p class="name">數量:{{item.quantity}}</p>
-            </div> 
-        </div>
-
-    </div>
 
     </div> 
 

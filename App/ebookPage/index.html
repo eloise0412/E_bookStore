@@ -12,7 +12,7 @@
 <div id="app">
 
     <div class="header flex-center">
-        <h1 class="header-title flex-center text-white tsize-16" v-show="!showSearch">首頁</h1>
+        <h1 class="header-title flex-center text-white tsize-16" v-show="!showSearch">電子書</h1>
 
         <div class="header-search">
 
@@ -31,22 +31,15 @@
 
 
     <div class="carousel-slider mb-24"> 
-
         <div class="carousel-img-contain"> 
-
             <div class="carousel-img-item"><img  class="carousel-img" src="/img/banner-01.jpg"> </div>
-
             <div class="carousel-img-item"> <img class="carousel-img" src="/img/banner-02.jpg"> </div>  
-
         </div>
 
       
-      <div class="carousel-slider-button-group flex-center">
-
+      <div class="carousel-slider-button-group">
         <button class="dotBtn cursor" data-index="0"></button>
-
         <button class="dotBtn cursor" data-index="1"></button>
-
       </div>
 
     </div>   
@@ -55,7 +48,7 @@
 
     <div class="category-menu">
         <ul class="category-list">
-            <li v-for="category in categories"
+            <li class="category-item" v-for="category in categories"
                 :key="category">
             <button class="category-btn cursor tsize-16 text-white" @click="currentCategory = category">
             {{ category }}
@@ -93,7 +86,7 @@
       
       <p class="book-price tsize-16">
       
-      售價:{{item.price}}元</p> 
+      NT:${{item.price}}</p> 
       
       
       
@@ -128,7 +121,7 @@
       
       
       
-      <div class="detail-actions flex-center">
+      <div class="detail-btn flex-center">
       
       
       <a @click="goDetail(item)">
@@ -167,7 +160,7 @@
 
             <li class="taBar-item">
                 <a class="taBar-link flex-column text-white" href="/App/ebookPage/index.html">
-                    <i class="fa-solid fa-book-open taBar-icon"></i>首頁</a></li>
+                    <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
 
         
             <li class="taBar-item">

@@ -181,3 +181,68 @@ a{
     margin-bottom: 5px;
   }
 }
+
+
+@media (min-width: 440px) {
+
+  
+  .taBar-menu{
+    .taBar-item{
+    .cart-badge {
+      right: 20px;
+  }}}
+}
+
+
+@media (min-width: 476px) {
+    
+  .taBar-menu{
+    .taBar-item{
+    .cart-badge {
+      right: 22px;
+  }}}
+  
+  }
+
+
+@media(min-width: 560px){
+
+  .taBar-menu{
+    .taBar-item{
+    .cart-badge {
+      right: 32px;
+  }}}
+}
+
+
+@media (min-width: 640px) {
+
+.taBar-menu{
+  .taBar-item{
+  .cart-badge {
+    right: 45px;
+}}}
+    
+}
+
+
+@media (min-width: 768px) {
+
+  .taBar-menu{
+    .taBar-item{
+    .cart-badge {
+      right: 52px;
+  }}}
+
+}  
+
+
+
+@media (min-width: 834px) {
+
+.taBar-menu{
+.taBar-item{
+.cart-badge {
+  right: 58px;
+}}}
+}   

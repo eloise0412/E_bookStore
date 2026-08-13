@@ -14,10 +14,6 @@ const app = {
 
 
     methods:{
-      
-      returnBtn(){
-        window.history.back();
-      },
 
       saveCart(){
         localStorage.setItem(
