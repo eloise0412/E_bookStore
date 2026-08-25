@@ -13,7 +13,6 @@ img{
 
 body{
     line-height:1.5;
-	background: #24241F;
 	height: 100%;
 }
 
@@ -58,15 +57,11 @@ a{
 	margin-top: 24px;
   }
 
-#app{
-
-   color: #ffffff;
-}
 
 .header{
 	width: 100%;
 	height: 56px;
-	background: #333232;
+	background: #ffffff;
   
   
 	position: sticky;
@@ -98,35 +93,19 @@ a{
 	
   }
 
-.shoppingCart_list{
-	padding: 24px;
+
+.cart-list{
+	padding: 8px;
 	margin-bottom: 40px;
+}
 
 
-	.book-cover img{
-		width: 130px; 
-		border:1px solid #2B5596;
-	}
-
-	.shoppingCart_grid_contant{
-		display: grid;
-		grid-template-columns:104px 1fr 48px ;
-		grid-template-rows: auto 18px 56px;
-
-		min-width: 272px;
-
-	
-		grid-template-areas:
-        "cover name delete"
-		"cover bookprice delete"
-		"cover book-amount delete";
-
-		gap:8px;
-
+	.cart-contant{
+		display:grid;
+		grid-template-columns: 3fr 1fr 1fr 1fr;
+		
 		padding:8px;
 		margin-bottom: 24px;
-
-		background: #333232;
 
 		border-radius: 8px;
 
@@ -134,93 +113,90 @@ a{
 
 	}
 
-	.book-cover{
-		grid-area:cover;
+	.head-book-name{
+		justify-items: end;
+	}
+
+	.book-info{
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		}
+
+	  .info-item{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		flex: 1;
 	  }
-	  
-	  .book-name{
 
-		grid-area:name;
-
-		padding-top: 20px;
-
+	  .info-item img{
+		width: 120px;
 	  }
 
 	  .book-price{
-		grid-area:bookprice;
-
 		color: red;
 	  }
 
 	  .book-amount{
-		grid-area:book-amount;
-
-		width: 32px;
+		width: 28px;
 		height: 24px;
-
-		color: #ccc;
-
-
-		background: #1E1E1A;
-
-        border: none;
 
 	  }
 	  
-
-	  .delete-contain{
-
-		width: 40px;
-		height: 40px;
-
-		grid-area:delete;
-		justify-self: end;  /*justify-content:grid版*/
-		
-		background: #986598;
-		border-radius: 8px;
-
-	   }
-
-	   .delete-contain:hover{
-		background-color: red;
-	   }
+	   
 
 	   .delete-btn{
-		color: #ccc;
+		color:#986598;
 	   }
 	   
-}
+
 
 
 .cart_action{
 	width:100%;
-	background: #333232;
-
+	height: 56px;
 
 	position: fixed;
 	bottom: 0;
 	z-index: 10;
 
 
+	color: #ffffff;
+
+	background: #ffffff;
+
+
+
 	  #return{
-		height: 76px;
+		height: 40px;
 		
 		width: 100%;
-		font-size: 26px;
-		color: #ffffff;	
+		font-size: 20px;
+
+		background:#2C5597;
+		border-radius:20px;
+
+		margin-bottom: 20px;
+
 	  }
 
-	  #paymentBtn{
-		height: 76px;
 
-		background:none;
+	  #paymentBtn{
+		height: 40px;
+
+		background:#2C5597;
+		border-radius:20px ;
 
 		width: 100%;
 
-		font-size: 26px;
+		font-size: 20px;
 
-		color: #ffffff;	
-		
+		margin-bottom: 20px;
+
+
 	  }
 }
 
@@ -229,3 +205,35 @@ a{
     cursor: not-allowed;
 }
 
+
+
+@media (min-width: 1024px) {
+	.cart-list{
+		padding:0 80px;
+		margin-bottom: 120px;
+	}
+  
+	}
+  
+	@media (min-width: 1280px) {
+		.cart-list{
+			padding:0 160px;
+		}	  
+	}
+  
+
+	@media (min-width: 1536px) {
+		.cart-list{
+			padding:0 120px;
+			margin-bottom: 192px;
+		}
+	  
+	}
+  
+	
+	@media (min-width: 1920px) {
+		.cart-list{
+			padding:0 240px;
+			
+		}
+	}

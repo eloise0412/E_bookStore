@@ -13,7 +13,6 @@ img{
 
 body{
     line-height:1.5;
-    background: #24241F;
     height: 100%;
 }
 
@@ -61,11 +60,6 @@ i{
 
 
 
-#app{
-  color: #ffffff;
-}
-
-
 .header{
   width: 100%;
   height: 56px;
@@ -73,8 +67,6 @@ i{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  background: #424242;
 
 
   position: sticky;

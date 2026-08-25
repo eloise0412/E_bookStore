@@ -13,8 +13,8 @@ img{
 
 body{
     line-height:1.5;
-	background: #24241F;
 	height: 100%;
+	width: 100%;
 }
 
 ul{
@@ -50,18 +50,17 @@ a{
 	color: inherit;        /* 文字顏色繼承父層 */
   }
   
-
-#app{
-	color: #ffffff;
-}
+  .list-title{
+	background: #ECE7DD;
+	}
 
 
 
 .header{
-	width: 100%;
+
 	height: 56px;
-	background: #333232;
-  
+
+ 	background: #ffffff;
   
 	position: sticky;
 	top: 0;
@@ -71,7 +70,7 @@ a{
 	.logo{
 		width: 100%;
 		font-size: 16px;
-		color: #ffffff;	
+	
 	  }       
 
 	  .header-space{
@@ -83,33 +82,27 @@ a{
   
 
 .payment{
+	max-width: 320px;
+    margin: 0 auto;
+
+	padding: 32px 0;
+	
+}
+
+
+.shipping-list{
 	width: 100%;
 
-	margin-top: 24px;
-	padding: 20px;
-
-
-	padding-bottom: 96px;
-	
-
-	.shipping-list{
-
-		width: 100%;
-		padding: 32px;
-		background: #424242;
-	}
-	
-
-
-	
-	
-	.list-item{
-		display: block;
-
-		line-height: 40px;
-	}
+	margin-bottom: 80px;
 
 }
+
+.list-item{
+	display: block;
+
+	line-height: 40px;
+}
+
 
 
 
@@ -172,25 +165,76 @@ a{
 
 .checkout-action{
 	width: 100%;
+	height: 56px;
+	display: flex;
+	justify-content: center;
+	
+
 
 	position: fixed;
 	bottom: 0;
-	z-index: 10;
+	left: 0;
+	width: 100%;
 
-	display: flex;
-	justify-content: space-around;
-
-	background: #333232;
+	background: #ffffff;
 
 
+	#checkout-btn{
+		width: 300px;
+		height: 40px;
 
-	#checkout-btn,#return-btn{
-		width: 100%;
-		height: 76px;
+		border-radius:40px ;
 
 		font-size: 26px;
 
 		color: #ffffff;
+
+		background: #2C5597;
+
+
+
 	}
 }
 
+@media (min-width: 476px) {
+
+	.payment{
+		max-width: 360px;
+	}
+  }
+  
+  @media (min-width: 640px) {
+  
+	.payment{
+		max-width: 480px;
+	}
+  }
+  
+  @media (min-width: 768px) {
+	.payment{
+		max-width: 640px;
+	}
+  }
+   
+  
+	@media (min-width: 1280px) {
+		.payment{
+			max-width: 800px;
+		}
+	
+	}
+  
+  
+	@media (min-width: 1536px) {
+		.payment{
+			max-width: 1120px;
+		}
+	}
+  
+	
+	@media (min-width: 1920px) {
+		.payment{
+			max-width: 1360px;
+		}
+	
+	}

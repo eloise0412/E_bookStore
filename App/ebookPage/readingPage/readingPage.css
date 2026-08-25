@@ -13,7 +13,6 @@ img{
 
 body{
     line-height:1.5;
-    background: #24241F;
     height: 100%;
 }
 
@@ -77,15 +76,14 @@ a{
 
 #app{
   height: 100vh;
-  background: #24241F;
-  color: #ffffff;
+
 }
 
 
 
 .header{
   height: 56px;
-  background: #333232;
+
 
 
   position: sticky;

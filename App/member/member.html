@@ -11,12 +11,7 @@
 <div id="app">
     <div class="wrap">
         
-        <div class="header flex-center">
-
-            <h1 class="header-title flex-center tsize-16">會員管理</h1>
-        
-                        
-        </div>
+      
 
 
         <div v-if="isLogin"> 
@@ -90,42 +85,7 @@
         <button class="action-btn flex-center mt-24 btn-reset" @click="login">立即登入</button>
     </div>
     
-    <div class="taBar-menu">
     
-        <ul class="taBar-list">
-            <li class="taBar-item">
-                <a  class="taBar-link flex-column" 
-                href="/App/audioPage/audioIndex/index.html">
-                <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
-
-
-            <li class="taBar-item">
-                <a  class="taBar-link flex-column" 
-                href="/App/ebookPage/index.html">
-                    <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
-        
-            <li class="taBar-item">
-                <a class="taBar-link flex-column" 
-                href="/App/checkOut/shoppingCart/cart.html">
-
-            <span class="cart-badge flex-center text-white" 
-            v-if="cart.length > 0" > {{ cart.length }}</span>
-
-            <i class="fa-solid fa-cart-shopping taBar-icon"></i>購物車</a>
-            </li>
-            
-            <li class="taBar-item">
-                <a class="taBar-link flex-column"
-                href="/App/bookcase/bookcase.html">
-                    <img class="bookcase-img" src="/icon/caseW.png">書櫃</a></li>
-
-            <li class="taBar-item"> 
-                <a class="taBar-link flex-column"
-                 href="/App/member/member.html">
-                    <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
-        </ul>
-    </div>
-</div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 

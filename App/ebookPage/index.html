@@ -9,188 +9,287 @@
 <body>
 
 
-<div id="app">
+    <div id="app">
 
-    <div class="header flex-center">
-        <h1 class="header-title flex-center text-white tsize-16" v-show="!showSearch">電子書</h1>
+        <header class="header">
+    
+            <div class="logo">
+                logo
+            </div>
+    
+            <div class="header-search btn-reset">
+    
+                <input
+                    class="header-search-input"
+                    type="text"
+                    placeholder="搜尋書名"
+                    v-model="searchInput"
+                    @keyup.enter="search"
+                >
+    
+                <button class="header-search-btn btn-reset " @click="search">
+                    <i class="fa-solid fa-magnifying-glass magnifier"></i>
+                </button>
+    
+            </div>
 
-        <div class="header-search">
-
-        <button class="header-search-btn btn-reset cursor"  @click="showSearch = !showSearch">
-            <i class="fa-solid fa-magnifying-glass magnifier tsize-16 text-white"></i>
-        </button>
-
-        <input class="header-search-input tsize-16"
-            v-show="showSearch"
-            type="text" 
-            v-model="keyword"
-            placeholder="搜尋書名">
-        </div>
-
-    </div>
-
-
-    <div class="carousel-slider mb-24"> 
-        <div class="carousel-img-contain"> 
-            <div class="carousel-img-item"><img  class="carousel-img" src="/img/banner-01.jpg"> </div>
-            <div class="carousel-img-item"> <img class="carousel-img" src="/img/banner-02.jpg"> </div>  
-        </div>
-
-      
-      <div class="carousel-slider-button-group">
-        <button class="dotBtn cursor" data-index="0"></button>
-        <button class="dotBtn cursor" data-index="1"></button>
-      </div>
-
-    </div>   
-      
-      
-
-    <div class="category-menu">
-        <ul class="category-list">
-            <li class="category-item" v-for="category in categories"
-                :key="category">
-            <button class="category-btn cursor tsize-16 text-white" @click="currentCategory = category">
-            {{ category }}
+            <button class="menu-toggle btn-reset"  @click="showMenu = !showMenu">
+                <i class="fa-solid fa-bars"></i>
             </button>
-            </li>
-        </ul>
-      </div>
+
+            <ul class="nav-list"
+            :class="{ 'menu-show': showMenu }"
+            >
+    
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        @click="handleLogin"
+                        href="/App/loginPage/login.html"
+                    >
+                        {{ isLogin ? '登出' : '登入' }}
+                    </a>
+                    
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="/App/checkOut/shoppingCart/cart.html"
+                    >   購物車
+                        <span
+                            class="cart-badge"
+                            v-if="cart.length > 0"
+                        >
+                        ({{ cart.length }})
+                        </span>
+                    </a>
+                </li>
+    
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="/App/bookcase/bookcase.html"
+                    >
+                        書櫃
+                    </a>
+                </li>
+    
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="/App/audioPage/audioIndex/index.html"
+                    >
+                        有聲書
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" 
+                    href="/App/ebookPage/index.html">
+                   電子書
+                    </a>
+                </li>
+    
+            </ul>
+    
+        </header>
 
 
-      <div class="book-list" v-if="filterBooks.length > 0">
-      
-      <div class="book-cart mb-24"
-      v-for="item in filterBooks" 
-      :key="item.id">  
-      
-      <div class="book-content"
-       @click="goDetail(item)" >
-      
-      <img class="book-img" :src="item.cover">
-      
-      
-      <div class="book-info">
-      
-      <h1 class="book-name">{{item.name}}</h1>
-      
-      <p class="book-author tsize-16 mb-24">
-      
-      作者:{{item.author}}</p>
-                                  
-      
-      
-      
-                              
-      <div class="book-cart-column">
-      
-      <p class="book-price tsize-16">
-      
-      NT:${{item.price}}</p> 
-      
-      
-      
-      <div class="action-btn">  
-       
-       <div class="wish-btn" 
-      
-       @click.stop="addToWish(item)" 
-      
-      :class="{ activeHeart: isWish(item) }">
-      
-      <i class="fa-solid fa-heart book-action-icon tsize-22"></i>
-      
-      </div>
-      
-      
-      
-      <div class="shoppingcart-btn"
-      
-      @click.stop="addToCart(item,$event)">
-      
-      <i class="fa-solid fa-cart-shopping book-action-icon tsize-22"></i>
-      
-      </div>
-      
-       </div>
-       </div>
-      
-       </div>
-      
-       </div>
-      
-      
-      
-      <div class="detail-btn flex-center">
-      
-      
-      <a @click="goDetail(item)">
-      
-      
-      <span class="detail-btn-text">前往詳情</span>
-      
-      <i class="fa-solid fa-play book-action-icon tsize-16"></i>
-      
-      </a>
-      
-      
-      </div>
-      
-      
-      </div>
-      
-      </div>
-      
-      
-      
-      <p v-else class="filter-nobook">查無此書</p>
-      
-      
 
     
+    
+        <div class="page-wrap">
+        <div class="carousel-slider mb-24">
+    
+            <div class="carousel-img-contain">
+    
+                <div class="carousel-img-item">
+                    <img
+                        class="carousel-img"
+                        src="/img/banner-01.jpg"
+                    >
+                </div>
+    
+                <div class="carousel-img-item">
+                    <img
+                        class="carousel-img"
+                        src="/img/banner-02.jpg"
+                    >
+                </div>
+    
+            </div>
+    
+            <div class="carousel-slider-button-group">
+    
+                <button
+                    class="dotBtn cursor"
+                    data-index="0"
+                ></button>
+    
+                <button
+                    class="dotBtn cursor"
+                    data-index="1"
+                ></button>
+    
+            </div>
+    
+        </div>
+    
+    
 
-      <div class="taBar-menu">
-   
-        <ul class="taBar-list">
-            <li class="taBar-item">
-                <a class="taBar-link flex-column" href="/App/audioPage/audioIndex/index.html">
-                    <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
+        <!-- Page -->
+        <div class="page-contain">
+    
+            <!-- Category -->
+            <div class="category-menu">
+    
+                <ul class="category-list">
+    
+                    <li
+                        class="category-item"
+                        v-for="category in categories"
+                        :key="category"
+                    >
+    
+                        <button
+                            class="category-btn cursor tsize-16"
+                            @click="currentCategory = category"
+                        >
+                            {{ category }}
+                        </button>
+    
+                    </li>
+    
+                </ul>
+    
+            </div>
+    
+            <h3 class="list-title">今日熱門</h3>
+            <div class="hot-book-list">
+            <div
+            v-for="item in filterBooks.slice(0, 4)"
+            :key="item.id">
+
+            <div
+            class="hot-book-content"
+            @click="goDetail(item)">
+
+            <img
+                class="hot-book-img"
+                :src="item.cover">
+
+            <h4 class="book-name flex-center">{{ item.name }}</h4>    
+            </div>
+            </div>
+            </div>
 
 
+                        
+            <h3 class="list-title">最新書籍</h3>
+            <!-- Bookcart -->
+            <div class="book-wrap">
 
-            <li class="taBar-item">
-                <a class="taBar-link flex-column text-white" href="/App/ebookPage/index.html">
-                    <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
-
-        
-            <li class="taBar-item">
-                <a class="taBar-link flex-column" 
-                href="/App/checkOut/shoppingCart/cart.html">
-
-              <span class="cart-badge flex-center text-white" 
-                v-if="cart.length > 0">{{ cart.length }}</span>
-
-              <i class="fa-solid fa-cart-shopping taBar-icon"></i>購物車</a>
-            </li>
-
-            
-            <li class="taBar-item">
-                <a class="taBar-link flex-column" 
-                href="/App/bookcase/bookcase.html">
-                <img class="bookcase-img" 
-                src="/icon/caseW.png">書櫃</a></li>
-
-
-            <li class="taBar-item">
-                <a class="taBar-link flex-column"
-                 href="/App/member/member.html">
-                <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
-        </ul>
+                <!-- 有搜尋結果 -->
+                <div
+                    class="book-list"
+                    v-if="filterBooks.length > 0"
+                >
+           
+                    <div
+                        class="book-cart mb-24"
+                        v-for="item in filterBooks"
+                        :key="item.id"
+                    >
+    
+                        <!-- 書籍內容 -->
+                        <div
+                            class="book-content"
+                            @click="goDetail(item)"
+                        >
+    
+                            <img
+                                class="book-img"
+                                :src="item.cover"
+                            >
+    
+                            <div class="book-info">
+    
+                                <h4 class="book-name">
+                                    {{ item.name }}
+                                </h4>
+    
+                                <p class="book-author tsize-16">
+                                    作者:{{ item.author }}
+                                </p>
+    
+                                <p class="book-price">
+                                    NT$:{{ item.price }}
+                                </p>
+    
+    
+                                <!-- 收藏 / 購物車 -->
+                                <div class="action-btn">
+    
+                                    <div
+                                        class="wish-btn"
+                                        @click.stop="addToWish(item)"
+                                        :class="{ activeHeart: isWish(item) }"
+                                    >
+                                        <i
+                                            class="fa-solid fa-heart book-action-icon"
+                                        ></i>
+                                    </div>
+    
+                                    <div
+                                        class="shoppingcart-btn"
+                                        @click.stop="addToCart(item, $event)"
+                                    >
+                                        <i
+                                            class="fa-solid fa-cart-shopping book-action-icon btn-blue"
+                                        ></i>
+                                    </div>
+    
+                                </div>
+    
+                            </div>
+    
+                        </div>
+    
+    
+                        <!-- 詳情按鈕 -->
+                        <div class="detail-btn flex-center">
+    
+                            <a @click="goDetail(item)">
+    
+                                <span class="detail-btn-text">
+                                    前往詳情
+                                </span>
+    
+                                <i
+                                    class="fa-solid fa-play book-action-icon tsize-16"
+                                ></i>
+    
+                            </a>
+    
+                        </div>
+    
+                    </div>
+    
+                </div>
+    
+    
+                <!-- 沒有搜尋結果 -->
+                <p
+                    v-else
+                    class="filter-nobook"
+                >
+                    查無此書
+                </p>
+    
+            </div>
+    
+        </div>
+    
     </div>
-    
-
-</div>
-
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 

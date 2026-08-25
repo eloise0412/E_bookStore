@@ -61,10 +61,14 @@ const app={
 },
 mounted() {
  
+    // console.log("order =", this.order);
+
+    // this.clearOrder();
+
     console.log("order =", this.order);
+    console.log("order.cart =", this.order.cart);
 
     this.clearOrder();
-
 }
     
 

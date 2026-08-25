@@ -3,15 +3,20 @@ const app = {
     data(){  
         return{
 
+          isLogin: localStorage.getItem("isLogin") === "true",
+          showMenu: false,
           isLogin: false,
+          searchInput: '',
+          keyword:'',
+          
 
             bookshelf:
             JSON.parse(
               localStorage.getItem('bookshelf')
             ) || [],
 
-            showSearch:false,
-            keyword:'',
+
+       
             
             cart:
             JSON.parse(
@@ -30,6 +35,10 @@ const app = {
 
         
        methods:{
+                
+        search() {
+          this.keyword = this.searchInput;
+      },
 
         removeCart(index){
 
@@ -51,14 +60,38 @@ const app = {
 
             location.href =
             `../bookDetailPage/detail.html?id=${book.id}`;
-        }
+        },
+        handleLogin() {
+
+          if (this.isLogin) {
+              // 已登入 → 登出
+              localStorage.removeItem('isLogin');
+              this.isLogin = false;
+  
+          } else {
+              // 未登入 → 前往登入頁
+              location.href = "/App/loginPage/login.html";
+          }
+  
+      }
        },
 
        computed:{
+        check(){
+          console.log(
+            this.bookshelf.filter(book =>
+                !book.name || !book.category
+            )
+        );
+        },
+        
         filterBooks(){  //放大鏡關鍵字搜尋，已經幫你做完 wish 過濾filterBooks所以直接寫 v-for="(item,index) in filterBooks"
       
         return this.bookshelf.filter(book => {
          // 搜尋條件
+
+         console.log("目前資料：", book);
+
         const matchKeyword =
         book.name.includes(this.keyword)
 

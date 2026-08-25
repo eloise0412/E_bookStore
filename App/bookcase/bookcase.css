@@ -13,7 +13,6 @@ img{
 
 body{
     line-height:1.5;
-    background: #24241F;
     height: 100%;
 }
 
@@ -76,45 +75,97 @@ a{
   margin-top: 24px;
 }
 
-#app{
-  color: #ffffff;
-}
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.header{
-  width: 100%;
-  height: 56px;
+  height: 72px;
 
-  background: #333232;
 
   position: sticky;
   top: 0;
   z-index: 10;
 
-  
-  .header-search-btn{
-    width: 20px;
-    height: 20px;
+  background: #ffffff;
+  box-shadow: -20px -5px 24px -7px #666666;
+}
 
-    display: block;
+.logo{
+  width: 64px;
+  height: 72px;
+}
 
-    position: absolute;                 
-    right: 24px;         
-    top: 50%;            
-    transform: translateY(-50%);
-  }
 
-  .header-search-input{
-    width: 250px;
-    height: 30px;
-    text-align: center;
+.header-search {
+  display: flex;
+  align-items: center;
+}
 
-    background:none;
-    border:none;
-    outline:none;
-    color:inherit;
-    font:inherit;
-  }
+.header-search-input {
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid #2C5597;
+  font-size: 16px;
+}
+
+.header-search-btn {
+  width: 32px;
+  height: 40px;
+  border: 1px solid #2C5597;
+  background: #2C5597;
+}
+
+.magnifier{
+  font-size: 20px;
+  color: #ffffff;
+}
+
+
+.menu-toggle {
+
+  width: 64px;
+  height: 72px;
+
+  display: block;
+  transition: max-height 1.5s;
+
+}
+
+.menu-toggle i{
+font-size: 24px;
+color: #2C5597;
+}
+
+.nav-list{
+position: absolute;
+top: 72px;
+left: 0;
+right: 0;
+
+text-align: center;
+
+line-height: 3;
+
+display: block;
+
+max-height: 0;
+overflow: hidden;
+
+background: #ffffff;
+
+transition: all 0.3s;
+
+}
+
+.nav-item {
+display: block;
+}
+
+.cart-badge{
+color: red;
 }
 
   
@@ -122,13 +173,14 @@ a{
 
     display:grid;
 
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,112px);
 
-    gap:32px 8px;
-
-    padding:8px;
+    gap:56px 32px;
 
     margin-bottom: 140px;
+
+    justify-content: center;
+
 
 
 
@@ -138,6 +190,8 @@ a{
     height: 136px;
 
     position: relative;
+
+
 
   }
   .book-img{
@@ -169,169 +223,124 @@ a{
 
 
 
+@media (min-width: 476px) {
+  .header-search-input {
+    width: 316px;
+  }
+  .bookcase-list-wrapper{
+    grid-template-columns: repeat(3, 112px);
+  }
+  }
+ 
+ @media (min-width: 640px) {
+  .logo {
+    width: 96px;
+  }
+  .menu-toggle {
+    width: 96px;
+  }
+  .header-search-btn {
+    width: 40px;
+  }
+  .header-search-input {
+    width: 408px;
+  }
 
-  .taBar-list{
-    width: 100%;
+  .bookcase-list-wrapper{
+    grid-template-columns: repeat(4, 112px);
+  }
+ }
+ 
+ @media (min-width: 768px) {
+  .logo {
+    width: 240px;
+  }
+  .menu-toggle {
+    width: 96px;
+  }
+  .header-search-btn {
+    width: 40px;
+  }
+  .header-search-input {
+    width: 392px;
+  }
+  .bookcase-list-wrapper{
+    grid-template-columns: repeat(5, 112px);
+  }
+ }
+  
+  
+ @media (min-width: 1024px) {
 
-    position: fixed;
-    bottom: 0;
+   .menu-toggle {
+    display: none;
+  }
+  
+  .nav-list{
+    position: static;
 
     display: flex;
+    max-height: none;
+    overflow: visible;
 
-    background: #333232;
-    z-index: 9;
+    height: 72px;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 16px;
+  }
+  .nav-link{
+    width: 88px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo{
+    width: 200px;
+  }
+
+  .header-search-input {
+    width: 320px;
+  }
  
-    
-  .taBar-item {
-    flex: 1;              
-  }
-  
-  .taBar-link {
-    width: 100%;
-    height: 100%;         
-    padding: 16px 0;
-    
-    position: relative;
-  
-  }
-  
-  .cart-badge{
-    position: absolute;
-  
-    top: 8px;
-    right: 15px;
-  
-    width: 18px;
-    height: 18px;
-  
-    border-radius: 50%;
-  
-    background: red;
-    color: white;
-  
-    font-size: 12px;
-  
-  }
-  
-  .bookcase-img{
-    width: 26px;
-  
-    margin-bottom: 5px;
-  }
-
-  .taBar-icon{
-    font-size: 24px;
-    margin-bottom: 5px;
-  }
-}
-  
-  
-
-
-
-  
-  @media (min-width: 440px) {
-
-    .bookcase-list-wrapper{
-
-      gap: 56px 8px;
-      .bookcase-list {
-        
-        width: 136px;
-      }
-    }
-    .taBar-menu{
-      .taBar-item{
-      .cart-badge {
-        right: 20px;
-    }}}
-  }
-  
-
-  @media (min-width: 476px) {
-      
-    .taBar-menu{
-      .taBar-item{
-      .cart-badge {
-        right: 22px;
-    }}}
-    
-    }
-
-  
-  @media(min-width: 560px){
-
-    .bookcase-list-wrapper{
-      grid-template-columns:repeat(4,1fr);
-      gap: 56px 8px;
-      .bookcase-list {
-        
-        width: 136px;
-      }
-    }
-    .taBar-menu{
-      .taBar-item{
-      .cart-badge {
-        right: 32px;
-    }}}
-  }
-  
-  
-  @media (min-width: 640px) {
-  
-    .bookcase-list-wrapper{
-      grid-template-columns:repeat(4,1fr);
-      gap: 56px 8px;
-      .bookcase-list {
-        
-        width: 144px;
-      }
-    }
-  
-  .taBar-menu{
-    .taBar-item{
-    .cart-badge {
-      right: 45px;
-  }}}
-      
-  }
-  
-
-  @media (min-width: 768px) {
-    .bookcase-list-wrapper{
-      grid-template-columns:repeat(4,1fr);
-      gap: 112px 8px;
-      .bookcase-list {
-        
-        width: 176px;
-      }
-    }
-
-    .taBar-menu{
-      .taBar-item{
-      .cart-badge {
-        right: 52px;
-    }}}
-
-  }  
-
-
-  
-@media (min-width: 834px) {
   .bookcase-list-wrapper{
-    grid-template-columns:repeat(4,1fr);
-    gap: 112px 8px;
-    .bookcase-list {
-      
-      width: 176px;
-    }
+    grid-template-columns: repeat(6, 112px);
   }
+ }
+ 
+   @media (min-width: 1280px) {
 
+    .menu-toggle {
+      display: none;
+    }
+    
+    .nav-list{
+      position: static;
+  
+      display: flex;
+      max-height: none;
+      overflow: visible;
+  
+      height: 72px;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 16px;
+    }
+    .nav-link{
+      width: 88px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .header-search-input {
+      width: 480px;
+    }
 
-.taBar-menu{
-  .taBar-item{
-  .cart-badge {
-    right: 58px;
-}}}
-}   
+  
+    .bookcase-list-wrapper{
+      grid-template-columns: repeat(7, 112px);
+    }
+ }
  

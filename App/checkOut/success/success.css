@@ -13,8 +13,8 @@ max-width:100%;
 
 body{
 line-height:1.5;
-background: #24241F;
 height: 100%;
+width: 100%;
 }
 
 ul{
@@ -55,14 +55,12 @@ color: inherit;        /* 文字顏色繼承父層 */
 
 
 
-#app{
-color: #fff;
-}
-
 
 .header{
 height: 56px;
-background: #333232;
+
+background: #ffffff;
+
 position: sticky;
 top: 0;
 z-index: 10;
@@ -85,13 +83,18 @@ padding-bottom: 64px;
 }
 
 
-.order-list{
-padding: 32px;
+	.order-list{
+	max-width: 320px;
+	margin: 0 auto;
+
+	padding: 32px 0;
+	
+
+
+	}
 
 	.list-contain{
-		background: #333232;
-		padding: 16px;
-		border-radius: 8px;
+		width: 100%;
 	}
 
 		.list-title{
@@ -111,7 +114,6 @@ padding: 32px;
 		.order-cart{
 			display: flex;
 			align-items: center;
-			background-color: #333232;
 			gap: 8px;
 			margin:16px 0;
 			}
@@ -120,20 +122,33 @@ padding: 32px;
 				width: 90px;
 				margin: 5px;
 			}
-	}
+	
 
 
 .return-action{
-width: 100%;
-position: fixed;
-bottom: 0;
-z-index: 10;
-background: #333232;
+	width: 100%;
+	height: 56px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
 
+
+
+	background: #ffffff;
 
 	#return-index{
-		height: 76px;
+		width: 300px;
+		height: 40px;
+
+		border-radius:40px ;
+
 		font-size: 26px;
+
+		color: #ffffff;
+
+		background: #2C5597;
+
 
 	}
 
@@ -148,3 +163,48 @@ to { opacity: 1; }
 .fade-in-element {
 animation: fadeIn 1s ease-in-out;
 }
+
+
+
+@media (min-width: 476px) {
+
+	.order-list{
+		max-width: 360px;
+	}
+  }
+  
+  @media (min-width: 640px) {
+  
+	.order-list{
+		max-width: 480px;
+	}
+  }
+  
+  @media (min-width: 768px) {
+	.order-list{
+		max-width: 640px;
+	}
+  }
+   
+  
+	@media (min-width: 1280px) {
+		.order-list{
+			max-width: 800px;
+		}
+	
+	}
+  
+  
+	@media (min-width: 1536px) {
+		.order-list{
+			max-width: 1120px;
+		}
+	}
+  
+	
+	@media (min-width: 1920px) {
+		.order-list{
+			max-width: 1360px;
+		}
+	
+	}

@@ -2,7 +2,9 @@ const app = {
     data(){
         return{
 
-            showSearch:false,
+            isLogin: localStorage.getItem("isLogin") === "true",
+            showMenu: false,
+            searchInput: '',
             keyword:'',
             heartPop:false,
 
@@ -121,7 +123,25 @@ const app = {
 
             location.href =
             `../../bookDetailPage/detail.html?id=${book.id}`;
+        },
+        search() {
+
+          this.keyword = this.searchInput;
+          
+      },
+      handleLogin() {
+
+        if (this.isLogin) {
+            // 已登入 → 登出
+            localStorage.removeItem('isLogin');
+            this.isLogin = false;
+
+        } else {
+            // 未登入 → 前往登入頁
+            location.href = "/App/loginPage/login.html";
         }
+
+    }
     },
 
     computed:{
