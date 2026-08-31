@@ -9,11 +9,11 @@ const app = {
             heartPop:false,
 
             audioProducts : [
-                { name:'好玩的數學',category:'自然科普',price:350,id:23,author:'克里斯汀',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "../../../img/書本封面-23.jpg" },
-                { name:'理財手扶梯',category:'投資理財',price:350,id:24,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "../../../img/書本封面-24.jpg" },
-                { name:'浴室',category:'文學小說',price:350,id:25,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "../../../img/書本封面-25.jpg" },
-                { name:'韓文雜誌',category:'語言學習',price:350,id:26,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "../../../img/書本封面-26.jpg" },
-                { name:'多多葛的50個練習',category:'心理勵志',price:350,id:27,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "../../../img/書本封面-27.jpg" },
+                { name:'好玩的數學',category:'自然科普',price:350,id:23,author:'克里斯汀',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/E_bookStore/img/書本封面-23.jpg" },
+                { name:'理財手扶梯',category:'投資理財',price:350,id:24,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/E_bookStore/img/書本封面-24.jpg" },
+                { name:'浴室',category:'文學小說',price:350,id:25,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/E_bookStore/img/書本封面-25.jpg" },
+                { name:'韓文雜誌',category:'語言學習',price:350,id:26,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/E_bookStore/img/書本封面-26.jpg" },
+                { name:'多多葛的50個練習',category:'心理勵志',price:350,id:27,author:'艾利許',press:'出版社:大石出版',date:'出版日期:2020/3月',translator:'譯者:兔子先生', introduction:'2020年暢銷榜,蟬連3年銷售第一...',cover: "/E_bookStore/img/書本封面-27.jpg" },
             ],
 
 
