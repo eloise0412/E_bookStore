@@ -152,7 +152,7 @@ const app = {
 
         } else {
             // 未登入 → 前往登入頁
-            location.href = "/App/loginPage/login.html";
+            location.href = "../loginPage/login.html";
         }
 
     },
