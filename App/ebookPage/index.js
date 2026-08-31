@@ -158,7 +158,7 @@ const app = {
     },
 
       goindex(){
-        location.href='/App/eBookPage/index.html';
+        location.href='./index.html';
       }
            
       },
