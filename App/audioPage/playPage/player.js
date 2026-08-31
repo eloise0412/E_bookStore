@@ -25,7 +25,7 @@ const app = {
 
     returnBtn(){
       location.href =
-      `/App/bookDetailPage/detail.html?id=${this.book.id}`;
+      `../../../detail.html?id=${this.book.id}`;
     },
 
     toggleAudio(){
