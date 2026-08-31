@@ -21,7 +21,7 @@ const app = {
                 { name:'台灣復古插畫配色',category:"文學小說", price:300,id:9,author:'大貓老師',press:'出版社:極光出版社',date:'出版日期:2025/3月', introduction:'2023年暢銷榜,蟬連3年銷售第一...' , cover: "../../img/書本封面-09.jpg",type: 'ebook'},
                 { name:'為何貓會做夢',category:"自然科普", price:320,id:10,author:'多諾倫爾提爾',press:'出版社:大石出版',date:'出版日期:2024/8月',translator:'譯者:池塘的鴨', introduction:'貓咪的夢境裡跟人有不同...' , cover: "../../img/書本封面-10.jpg",type: 'ebook'},
                 { name:'阿甘增產法',category:"投資理財", price:300,id:11, author:'羅伯特戴蒙',press:'出版社:文化出版',date:'出版日期:2020/5月',translator:'譯者:池塘的鴨',introduction:'2021年暢銷榜,蟬連3年銷售第一...', cover: "../../img/書本封面-11.jpg",type: 'ebook'},
-                { name:'吐司的ETF日記',category:"投資理財", price:285,id:12, author:'吐司酥酥',press:'出版社:極光出版社',date:'出版日期:2026/1月',introduction:'ig網紅"吐司"出書啦!!教你如何用...', cover: "../../../img/書本封面-12.jpg",type: 'ebook'},
+                { name:'吐司的ETF日記',category:"投資理財", price:285,id:12, author:'吐司酥酥',press:'出版社:極光出版社',date:'出版日期:2026/1月',introduction:'ig網紅"吐司"出書啦!!教你如何用...', cover: "../../img/書本封面-12.jpg",type: 'ebook'},
                 { name:'有效溝通',category:"心理勵志" ,price:300, id:13,author:'亞歷桑愛勒',press:'出版社:文化出版',date:'出版日期:2025/3月',translator:'譯者:池塘的鴨',introduction:'最有效溝通法則,12章節讓你快速理解...', cover: "../../img/書本封面-13.jpg",type: 'ebook'},
                 { name:'談判的優雅',category:"投資理財", price:350,id:14,author:'安妮貝勒',press:'出版社:安心出版',date:'出版日期:2014/1月',translator:'譯者:池塘的鴨', introduction:'真誠的了解對方比用任何技巧...', cover: "../../img/書本封面-14.jpg",type: 'ebook'},
                 { name:'為何貓咪會崛起',category:"自然科普", price:320,id:15,author:'多諾倫爾提爾',press:'出版社:大石出版',date:'出版日期:2024/8月',translator:'譯者:池塘的鴨',introduction:'為什麼貓咪會成為這個世代...', cover: "../../img/書本封面-15.jpg",type: 'ebook'},
