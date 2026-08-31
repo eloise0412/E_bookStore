@@ -141,7 +141,11 @@ const app = {
             location.href = "/App/loginPage/login.html";
         }
 
+    },
+      goindex(){
+      location.href='/App/eBookPage/index.html';
     }
+        
     },
 
     computed:{

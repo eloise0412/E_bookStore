@@ -11,16 +11,16 @@
 
     <div id="app">
 
-        <header class="header">
+        <header class="header bg-white">
+           
+            <div class="header-flex flex-align-center">
+            <h1 class="logo" @click="goindex()">              
+            </h1>
     
-            <div class="logo">
-                logo
-            </div>
-    
-            <div class="header-search btn-reset">
+            <div class="header-search btn-reset flex-align-center">
     
                 <input
-                    class="header-search-input"
+                    class="header-search-input tsize-16"
                     type="text"
                     placeholder="搜尋書名"
                     v-model="searchInput"
@@ -28,7 +28,7 @@
                 >
     
                 <button class="header-search-btn btn-reset " @click="search">
-                    <i class="fa-solid fa-magnifying-glass magnifier"></i>
+                    <i class="fa-solid fa-magnifying-glass magnifier tsize-20"></i>
                 </button>
     
             </div>
@@ -37,7 +37,7 @@
                 <i class="fa-solid fa-bars"></i>
             </button>
 
-            <ul class="nav-list"
+            <ul class="nav-list bg-white"
             :class="{ 'menu-show': showMenu }"
             >
     
@@ -90,7 +90,7 @@
                 </li>
     
             </ul>
-    
+        </div>
         </header>
 
 
@@ -98,7 +98,7 @@
     
     
         <div class="page-wrap">
-        <div class="carousel-slider mb-24">
+        <div class="carousel-slider mb-24 flex-row-center">
     
             <div class="carousel-img-contain">
     
@@ -151,7 +151,7 @@
                     >
     
                         <button
-                            class="category-btn cursor tsize-16"
+                            class="category-btn cursor tsize-16 bg-white container-radius"
                             @click="currentCategory = category"
                         >
                             {{ category }}
@@ -170,11 +170,11 @@
             :key="item.id">
 
             <div
-            class="hot-book-content"
+            class="hot-book-content flex-column container-radius"
             @click="goDetail(item)">
 
             <img
-                class="hot-book-img"
+                class="hot-book-img container-radius"
                 :src="item.cover">
 
             <h4 class="book-name flex-center">{{ item.name }}</h4>    
@@ -186,7 +186,7 @@
                         
             <h3 class="list-title">最新書籍</h3>
             <!-- Bookcart -->
-            <div class="book-wrap">
+            <div class="book-wrap flex-row-center">
 
                 <!-- 有搜尋結果 -->
                 <div
@@ -195,14 +195,14 @@
                 >
            
                     <div
-                        class="book-cart mb-24"
+                        class="book-cart mb-24 bg-white container-radius"
                         v-for="item in filterBooks"
                         :key="item.id"
                     >
     
                         <!-- 書籍內容 -->
                         <div
-                            class="book-content"
+                            class="book-content "
                             @click="goDetail(item)"
                         >
     
@@ -213,7 +213,7 @@
     
                             <div class="book-info">
     
-                                <h4 class="book-name">
+                                <h4 class="book-name tsize-16">
                                     {{ item.name }}
                                 </h4>
     
@@ -221,13 +221,13 @@
                                     作者:{{ item.author }}
                                 </p>
     
-                                <p class="book-price">
+                                <p class="book-price tsize-20">
                                     NT$:{{ item.price }}
                                 </p>
     
     
                                 <!-- 收藏 / 購物車 -->
-                                <div class="action-btn">
+                                <div class="action-btn tsize-20">
     
                                     <div
                                         class="wish-btn"
@@ -280,7 +280,7 @@
                 <!-- 沒有搜尋結果 -->
                 <p
                     v-else
-                    class="filter-nobook"
+                    class="filter-nobook flex-row-center"
                 >
                     查無此書
                 </p>

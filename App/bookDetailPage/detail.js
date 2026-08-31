@@ -109,7 +109,13 @@ methods:{
     return this.wish.some(
       item => item.id === book.id
     );
+  },
+  
+  goindex(){
+    location.href='/App/eBookPage/index.html';
   }
+  
+
 },
 
   
@@ -119,7 +125,7 @@ methods:{
     );
   }
 
-  
+
 }
 
 Vue.createApp(app).mount('#app')

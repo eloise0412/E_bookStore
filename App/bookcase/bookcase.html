@@ -10,13 +10,14 @@
 
 <div id="app">
 
+  
     <header class="header">
-    
-        <div class="logo">
-            logo
+        <div class="header-flex flex-align-center">
+        <div class="logo"  @click="goindex()">
+       
         </div>
 
-        <div class="header-search">
+        <div class="header-search flex-align-center">
 
             <input
                 class="header-search-input"
@@ -32,15 +33,15 @@
 
         </div>
 
-        <button class="menu-toggle btn-reset"  @click="showMenu = !showMenu">
+        <button class="menu-toggle btn-reset container-block"  @click="showMenu = !showMenu">
             <i class="fa-solid fa-bars"></i>
         </button>
 
-        <ul class="nav-list"
+        <ul class="nav-list container-block"
         :class="{ 'menu-show': showMenu }"
         >
 
-            <li class="nav-item">
+            <li class="nav-item container-block">
                 <a
                     class="nav-link"
                     @click="handleLogin"
@@ -89,7 +90,7 @@
                 </a>
             </li>
         </ul>
-
+    </div>
     </header>
 
 

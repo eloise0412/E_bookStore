@@ -10,7 +10,8 @@
 <body>
 
 <div id="app">
-    <div class="header">
+  
+    <div class="header bg-white">
       <a class="return-btn" @click="returnBtn">
           <i class="fa-solid fa-chevron-left return-icon"></i>
       </a>           
@@ -19,19 +20,19 @@
 
     
 
-    <div class="player-flex">
+    <div class="player-flex pd-16">
       
       <div class="audio-layer-contain">
 
          
-        <div class="book-cover mb-16">
+        <div class="book-cover mb-16 pd-16 bg-white">
             <img class="book-img mb-16" :src="book.cover" alt="書本封面" >        
         </div>
 
         
-        <div class="player-background">
+        <div class="player-background bg-white">
                  
-        <div class="book-info tsize-16">
+        <div class="book-info tsize-16 pd-16">
         <p>{{book.name}}</p>
         <p>{{book.introduction}}</p>
         </div>
@@ -47,8 +48,8 @@
               `linear-gradient(
               to right, #2B5596 0%, 
                #2B5596 ${progress}%, 
-               #FFFFFF ${progress}%, 
-               #FFFFFF 100%)`}"
+               #ccc ${progress}%, 
+               #ccc 100%)`}"
             @input="changeProgress">
         </div>
 
@@ -81,8 +82,8 @@
 
 
 
-   <div class="chapter-container">
-                <ul class="chapter-list">
+   <div class="chapter-container pd-16">
+                <ul class="chapter-list bg-white">
                   <li
                   class="chapter-item flex-center"
                   v-for="(chapter,index) in bookChapters" 

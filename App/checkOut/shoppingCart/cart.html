@@ -10,8 +10,8 @@
 <body>
 <div id="app">
 
-    <div class="header flex-center">
-        <h1 class="header-title tsize-16 flex-center">logo</h1>
+    <div class="header">
+        <h1 class="logo flex-center"></h1>
     </div>
 
 <div v-if="isLogin">   
@@ -37,7 +37,7 @@
     <div class="info-item">   
         <p  class="book-price tsize-16">NT${{item.price}}</p>
 </div>
-        <div class="info-item">    
+        <div class="info-item flex-column">    
             <input class="book-amount tsize-16" type="number" min="1" v-model.number="item.quantity"
             @change="saveCart">
         </div>
@@ -53,7 +53,7 @@
 </div>
 
 <div v-else>
-    <h2 class="flex-center mt-24">請先登入</h2>
+    <h2 class="login-remind flex-center mt-24">請先登入</h2>
 
 </div>
 

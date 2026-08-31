@@ -10,20 +10,21 @@
     
     <div id="app">
 
-      <header class="header">
+      <header class="header bg-white">
+
+        <div class="header-flex">
     
-        <div class="logo">
-            logo
+        <div class="logo" @click="goindex()">
         </div>
 
-        <button class="menu-toggle btn-reset"  @click="showMenu = !showMenu">
+        <button class="menu-toggle btn-reset container-block"  @click="showMenu = !showMenu">
             <i class="fa-solid fa-bars"></i>
         </button>
 
-        <ul class="nav-list"
+        <ul class="nav-list bg-white container-block"
         :class="{ 'menu-show': showMenu }"
         >
-            <li class="nav-item">
+            <li class="nav-item container-block">
                 <a
                     class="nav-link"
                     href="/App/loginPage/login.html"
@@ -73,6 +74,8 @@
 
         </ul>
 
+    </div>
+
     </header>
 
 
@@ -80,7 +83,7 @@
  
   <div class="background-container">
 
-  <div class="info-background">
+  <div class="info-background bg-white">
   <div class="book-info">
     
     <div class="info-item flex-center">
@@ -102,7 +105,7 @@
     </div>
     </div>
 
-      <div class="book-synopsis">
+      <div class="book-synopsis bg-white">
         <h3 class="synopsis-item">內容簡介</h3>
         <p>{{book.introduction}}</p>
         <p>這本書的內容引人入勝，作者以細膩的筆觸探討了人性深處的情感。故事情節緊湊，每一章節都讓人迫不及待想知道接下來的發展。角色塑造也相當出色，讓讀者能夠在閱讀過程中對他們產生深厚的共鳴。
@@ -133,7 +136,7 @@
       </div>
 
 
-    <div class="action-btn-tabar">
+    <div class="action-btn-tabar bg-white">
         <button class="action-btn btn-reset" @click="addToCart(book)">加入購物車</button>
         <button class="action-btn btn-reset" @click="goBook(book)">試閱</button>
         <button class="action-btn btn-reset" @click="addToWish(book)">心願清單</button>

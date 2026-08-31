@@ -14,6 +14,7 @@ max-width:100%;
 body{
 line-height:1.5;
 height: 100%;
+background: #ECE7DD;
 }
 
 ul{
@@ -23,6 +24,7 @@ list-style:none;
 a{
 color: inherit;
 text-decoration: none;
+display: block;
 }
 
 i{
@@ -65,11 +67,17 @@ justify-content: center;
 align-items: center;
 }
 
+.bg-white{
+background: #ffffff;
+}
+
 .tsize-16{
 font-size: 16px;
 }
 
-
+.pd-16{
+padding: 16px;
+}
 
 .header{
 height: 72px;
@@ -81,29 +89,22 @@ position: sticky;
 top: 0;
 z-index: 10;
 
-background: #ffffff;
+box-shadow: -20px -5px 24px -7px #666666;
 }
 
 .return-btn{
-
 width: 80px;
 height: 72px;
-
 }
 
 .return-icon{
-font-size: 32px;
 position: relative;
 top: 20px;
 left: 20px;
 
+font-size: 32px;
 }
 
-
-.header-title{
-width: 100%;
-
-}       
 
 .header-space{
 width: 80px;
@@ -112,33 +113,27 @@ width: 80px;
 
 .player-flex{
 width:100%;
-padding:16px;
+
 display: flex;
 justify-content: center;
 flex-direction: column;
-background: #ECE7DD;
 }
 
 .book-cover{
 display: flex;
 justify-content: center;
 
-padding-top: 16px;
-
-background: #ffffff;
 border-radius: 8px;
 
 }
 
 .book-info{
-padding: 16px;
 line-height: 24px;
 }
 
 
 .book-img{
 width: 200px;
-height: 280px;
 }
 
 .audio-layer-contain{
@@ -147,8 +142,7 @@ display: block;
 }
 
 .player-background{
- background: #ffffff;
- border-radius: 8px;
+border-radius: 8px;
 }
 
 
@@ -174,9 +168,10 @@ color: #2B5596;
 
 
 .progress {
+width: 100%;   
+
 appearance: none;
 
-width: 100%;
 
 position: relative;
 
@@ -186,14 +181,12 @@ box-shadow:1px 1px 20px -8px #2B5596;
 }
 
 .progress-bar{
-    padding: 0 16px;
+padding: 0 16px;
 }
 
 
 .progress:focus {
-
 outline: none;
-
 }
 
 .progress::before {  /*填滿的地方*/
@@ -238,52 +231,45 @@ transition: .5s all ease;
 
 
 .chapter-container{
-
 display: block;
-
-width: 100%;
-padding: 16px;
-
 }  
 
 
 .chapter-list{
-width: 100%;
 
 border-radius:20px;
 
 border: 1px solid #2B5596;
 box-shadow:1px 1px 5px -1px #2B5596;
-background: #ffffff;
-
 
 }
 
 .chapter-item{
-width: 100%;
 height: 60px;
 }
 
 
-   
-   
-  @media (min-width: 1024px) {
- 
-  
-    .player-flex{
-    display: flex;
-    padding: 32px 24px;
-    flex-direction: row;
-    }
 
-    .audio-layer-contain {
-        width: 600px;
 
-    }
-    .chapter-container {
-        display: block;
-        width: 600px;
-        padding: 0 16px;
-    }
+@media (min-width: 1024px) {
+
+
+.player-flex{
+padding: 32px 24px;
+
+display: flex;
+flex-direction: row;
+}
+
+.audio-layer-contain {
+width: 600px;
+
+}
+.chapter-container {
+display: block;
+width: 600px;
+padding: 0 16px;
+}
+
 }
   
