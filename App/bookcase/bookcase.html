@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>書櫃</title>
-    <link rel="stylesheet" href="/App/bookcase/bookcase.css">
+    <link rel="stylesheet" href="./bookcase.css">
 </head>
 <body>
 
@@ -45,7 +45,7 @@
                 <a
                     class="nav-link"
                     @click="handleLogin"
-                    href="/App/loginPage/login.html"
+                    href="../loginPage/login.html"
                 >
                     {{ isLogin ? '登出' : '登入' }}
                 </a>
@@ -54,7 +54,7 @@
             <li class="nav-item">
                 <a
                     class="nav-link"
-                    href="/App/checkOut/shoppingCart/cart.html"
+                    href="../checkOut/shoppingCart/cart.html"
                 >   購物車
                     <span
                         class="cart-badge"
@@ -68,7 +68,7 @@
             <li class="nav-item">
                 <a
                     class="nav-link"
-                    href="/App/bookcase/bookcase.html"
+                    href="./bookcase.html"
                 >
                     書櫃
                 </a>
@@ -77,7 +77,7 @@
             <li class="nav-item">
                 <a
                     class="nav-link"
-                    href="/App/audioPage/audioIndex/index.html"
+                    href="../audioPage/audioIndex/index.html"
                 >
                     有聲書
                 </a>
@@ -85,7 +85,7 @@
             
             <li class="nav-item">
                 <a class="nav-link" 
-                href="/App/ebookPage/index.html">
+                href="../ebookPage/index.html">
                電子書
                 </a>
             </li>
@@ -125,6 +125,6 @@
 </div>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
-<script src="/App/bookcase/bookcase.js"></script>
+<script src="./bookcase.js"></script>
 </body>
 </html>
