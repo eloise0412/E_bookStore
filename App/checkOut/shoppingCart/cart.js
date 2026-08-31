@@ -36,7 +36,7 @@ const app = {
           },
 
           returnBtn(){
-            location.href='../../../ebookPage/index.html';
+            location.href='../../ebookPage/index.html';
           },
 
           paymentBtn(){
