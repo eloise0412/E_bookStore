@@ -24,10 +24,10 @@ methods:{
 
   returnBtn(){
   if(this.book.type==='ebook'){
-    location.href ="/App/ebookPage/index.html"
+    location.href ="../ebookPage/index.html"
 
   }else{
-    location.href ="/App/audioPage/audioIndex/index.html"
+    location.href ="../audioPage/audioIndex/index.html"
   }
 
   },
@@ -91,12 +91,12 @@ methods:{
     if (book.type === "ebook") {
 
       location.href =
-        `/App/ebookPage/readingPage/readingPage.html?id=${book.id}`;
+        `../ebookPage/readingPage/readingPage.html?id=${book.id}`;
 
     } else {
 
       location.href =
-        `/App/audioPage/playPage/player.html?id=${book.id}`;
+        `../audioPage/playPage/player.html?id=${book.id}`;
 
     }
   },
@@ -112,7 +112,7 @@ methods:{
   },
   
   goindex(){
-    location.href='/App/eBookPage/index.html';
+    location.href='../eBookPage/index.html';
   }
   
 
