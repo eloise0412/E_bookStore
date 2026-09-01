@@ -158,7 +158,7 @@ const app = {
     },
 
       goindex(){
-        location.href='./index.html';
+        location.href='../audioPage/audioIndex/index.html';
       }
            
       },
