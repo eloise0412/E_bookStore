@@ -112,7 +112,7 @@ methods:{
   },
   
   goindex(){
-    location.href='../eBookPage/index.html';
+    location.href='../audioPage/audioIndex/index.html';
   }
   
 
