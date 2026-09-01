@@ -94,7 +94,7 @@ justify-content: space-between;
 width: 200px;
 height: 72px;
 
-background-image: url("/icon/logo-3.png");
+background-image: url("../../icon/logo-3.png");
 background-repeat: no-repeat; 
 background-size: 116px auto;
 background-position: center; 
