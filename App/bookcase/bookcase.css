@@ -265,7 +265,7 @@ grid-template-columns: repeat(4, 112px);
 @media (min-width: 768px) {
 .logo{
 width: 240px;  
-background-image: url("/icon/logo-3.png");
+background-image: url("../../icon/logo-3.png");
 background-size: 116px auto;
 }
 
