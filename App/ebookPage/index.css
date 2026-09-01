@@ -480,7 +480,7 @@ width: 146px;
 
 .logo{
   width: 240px;  
-  background-image: url("/icon/logo-3.png");
+  background-image: url("../../icon/logo-3.png");
   background-size: 116px auto;
 }
 
