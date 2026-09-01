@@ -39,9 +39,7 @@ const app = {
                     item => item.id == id
                 );
 
-                console.log("URL id:", id);
-                console.log("找到的書:", this.book);
-                console.log("書名:", this.book?.name);
+           
 
                 // 模擬讀取時間
                 await new Promise(resolve =>
