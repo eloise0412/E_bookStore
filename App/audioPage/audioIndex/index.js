@@ -143,7 +143,7 @@ const app = {
 
     },
       goindex(){
-      location.href='../eBookPage/index.html';
+      location.href='../../eBookPage/index.html';
     }
         
     },
