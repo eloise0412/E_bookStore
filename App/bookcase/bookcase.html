@@ -10,88 +10,24 @@
 
 <div id="app">
 
-  
-    <header class="header">
-        <div class="header-flex flex-align-center">
-        <div class="logo"  @click="goindex()">
-       
-        </div>
+<div class="size-container">
+    <div class="header flex-center">
+        <h1 class="header-title flex-center tsize-16" 
+            v-show="!showSearch">書櫃</h1>
 
-        <div class="header-search flex-align-center">
+        <div class="header-search">
 
-            <input
-                class="header-search-input"
-                type="text"
-                placeholder="搜尋書名"
-                v-model="searchInput"
-                @keyup.enter="search"
-            >
+        <button class="header-search-btn cursor btn-reset tsize-16" 
+         @click="showSearch = !showSearch">
 
-            <button class="header-search-btn btn-reset " @click="search">
-                <i class="fa-solid fa-magnifying-glass magnifier tsize-16"></i>
-            </button>
-
-        </div>
-
-        <button class="menu-toggle btn-reset container-block"  @click="showMenu = !showMenu">
-            <i class="fa-solid fa-bars"></i>
+  <i class="fa-solid fa-magnifying-glass magnifier tsize-16 text-white"></i>
         </button>
 
-        <ul class="nav-list container-block"
-        :class="{ 'menu-show': showMenu }"
-        >
-
-            <li class="nav-item container-block">
-                <a
-                    class="nav-link"
-                    @click="handleLogin"
-                    href="/App/loginPage/login.html"
-                >
-                    {{ isLogin ? '登出' : '登入' }}
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/App/checkOut/shoppingCart/cart.html"
-                >   購物車
-                    <span
-                        class="cart-badge"
-                        v-if="cart.length > 0"
-                    >
-                        ({{ cart.length }})
-                    </span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/App/bookcase/bookcase.html"
-                >
-                    書櫃
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/App/audioPage/audioIndex/index.html"
-                >
-                    有聲書
-                </a>
-            </li>
-            
-            <li class="nav-item">
-                <a class="nav-link" 
-                href="/App/ebookPage/index.html">
-               電子書
-                </a>
-            </li>
-        </ul>
+        <input class="header-search-input" 
+         v-show="showSearch" type="text" 
+         v-model="keyword" placeholder="搜尋書名">
+        </div>
     </div>
-    </header>
 
 
     
@@ -107,8 +43,6 @@
 
             <img class="book-img" :src="item.cover">
 
-            <div class="book-name">{{item.name}}</div>
-
             </div>
 
         </div>
@@ -119,10 +53,49 @@
 
 <div v-else>
     <h2 class="flex-center mt-24">請先登入</h2>
-</div>
-    
 
 </div>
+    
+    <div class="taBar-menu">
+        <ul class="taBar-list">
+            <li class="taBar-item">
+            <a class="taBar-link flex-column" 
+            href="/App/audioPage/audioIndex/index.html">
+            <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
+
+
+            <li class="taBar-item">
+            <a class="taBar-link flex-column"
+            href="/App/ebookPage/index.html">
+            <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
+
+        
+            <li class="taBar-item">
+            <a class="taBar-link flex-column" 	
+            href="/App/checkOut/shoppingCart/cart.html">
+            <span class="cart-badge flex-center" 
+            v-if="cart.length > 0"> {{ cart.length }}</span>
+            <i class="fa-solid fa-cart-shopping taBar-icon"></i>購物車</a></li>
+
+
+            
+            <li class="taBar-item">
+            <a class="taBar-link flex-column"
+             href="/App/bookcase/bookcase.html">
+            <img class="bookcase-img" src="/icon/caseW.png">書櫃</a></li>
+
+
+            <li class="taBar-item">
+            <a class="taBar-link flex-column" 
+            href="/App/member/member.html">
+            <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
+        </ul>
+    </div>
+
+</div>
+
+</div>
+
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
 <script src="/App/bookcase/bookcase.js"></script>

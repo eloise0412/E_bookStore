@@ -50,19 +50,16 @@ const app = {
         return this.wish.filter(book => {
          // 搜尋條件
         const matchKeyword =
-        book.name.includes(this.keyword)
+        (book.name || '').includes(this.keyword)
 
         const matchKeywordCategory =
-        book.category.includes(this.keyword)
+        (book.category || '').includes(this.keyword)
 
         // 分類符合  ||而且  (書名符合 或 分類符合)
         return (
           matchKeyword ||
           matchKeywordCategory
-
       );
-      
-
 
   });
 

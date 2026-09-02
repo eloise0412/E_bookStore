@@ -1,8 +1,6 @@
 const app={
 data() {
     return {
-
-      showMenu: false,
       book: {}, // goBook()
 
       cart:
@@ -32,90 +30,85 @@ methods:{
 
   },
   
-  addToCart(book) {
+  addToCart(book,event){
 
     const existingBook = this.cart.find(
       item => item.id === book.id
     );
-
-    if (existingBook) {
-
+  
+    if(existingBook){
+  
       existingBook.quantity++;
-      alert('已加入購物車');
-
-    } else {
-
+  
+  
+    }else{
+  
       this.cart.push({
         ...book,
-        quantity: 1
+        quantity:1
       });
-
+  
     }
-
+  
     localStorage.setItem(
       'cart',
       JSON.stringify(this.cart)
     );
+
+    const btnPop = event.currentTarget;
+
+    btnPop.classList.remove("active");
+    void btnPop.offsetWidth;
+    btnPop.classList.add("active");
+
+    btnPop.addEventListener("animationend",()=>{
+      btnPop.classList.remove("active");
+    },{once:true});
+  
   },
+  goBook() {
 
+    if (this.book.type === "ebook") {
 
-  addToWish(book) {
+        location.href =
+        `/App/ebookPage/readingPage/readingPage.html?id=${this.book.id}`;
+
+    } else {
+
+        location.href =
+        `/App/audioPage/playPage/player.html?id=${this.book.id}`;
+        
+    }
+
+},
+
+  addToWish(book){
 
     if (!book) return;
-
-    alert('已加入心願清單');
 
     const existingWish = this.wish.findIndex(
       item => item.name === book.name
     );
-
-    if (existingWish !== -1) {
-
+  
+    if(existingWish !== -1){
       this.wish.splice(existingWish, 1);
-
-    } else {
-
+    }else{
       this.wish.push(book);
-
     }
-
+  
     localStorage.setItem(
       'wish',
       JSON.stringify(this.wish)
-    );
-  },
+    );   
 
 
-  goBook(book) {
-
-    if (book.type === "ebook") {
-
-      location.href =
-        `/App/ebookPage/readingPage/readingPage.html?id=${book.id}`;
-
-    } else {
-
-      location.href =
-        `/App/audioPage/playPage/player.html?id=${book.id}`;
-
-    }
   },
 
 
   isWish(book) {
-
     if (!book) return false;
-
-    return this.wish.some(
-      item => item.id === book.id
-    );
+    return this.wish.some(item => item.id === book.id);
   },
-  
-  goindex(){
-    location.href='/App/eBookPage/index.html';
-  }
-  
-
 },
 
   
@@ -125,7 +118,7 @@ methods:{
     );
   }
 
-
+  
 }
 
 Vue.createApp(app).mount('#app')

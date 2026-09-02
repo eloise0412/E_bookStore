@@ -10,143 +10,93 @@
     
     <div id="app">
 
-      <header class="header bg-white">
+<div class="size-container">      
+        <div class="header">
+            <a class="return-btn" @click="returnBtn">
+                <i class="fa-solid fa-chevron-left return-icon"></i>
+            </a>
 
-        <div class="header-flex">
-    
-        <div class="logo" @click="goindex()">
+            <h1 class="header-title flex-center text-white tsize-16">書籍詳情</h1>
+
+            <div class="header-space"></div>
+                        
         </div>
 
-        <button class="menu-toggle btn-reset container-block"  @click="showMenu = !showMenu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <ul class="nav-list bg-white container-block"
-        :class="{ 'menu-show': showMenu }"
-        >
-            <li class="nav-item container-block">
-                <a
-                    class="nav-link"
-                    href="/App/loginPage/login.html"
-                >
-                    登入
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/App/checkOut/shoppingCart/cart.html"
-                >   購物車
-                    <span
-                        class="cart-badge"
-                        v-if="cart.length > 0"
-                    >
-                    ({{ cart.length }})
-                    </span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/App/bookcase/bookcase.html"
-                >
-                    書櫃
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/App/audioPage/audioIndex/index.html"
-                >
-                    有聲書
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" 
-                href="/App/ebookPage/index.html">
-               電子書
-                </a>
-            </li>
-
-        </ul>
-
-    </div>
-
-    </header>
 
 
+        <div class="book-article">
+            
+          <div class="book-img flex-center">
 
- 
-  <div class="background-container">
+          <img v-bind:src="book.cover" alt="書本圖片">
 
-  <div class="info-background bg-white">
-  <div class="book-info">
-    
-    <div class="info-item flex-center">
-    <img v-bind:src="book.cover" alt="書本圖片">
-    </div>
-
-        <div class="info-item">
-          <h1 class="book-name">{{book.name}}</h1>
-        <ul class="info-list tsize-16">
-          
-                <li>{{book.author}}</li>
-                <li>{{book.press}}</li>
-                <li>{{book.date}}</li>
-                <li>{{book.translator}}</li>
-                <li>價格:NT${{book.price}}</li>
+          </div>
+  
+          <h1 class="book-name flex-center">{{book.name}}</h1>
+         
+          <ul class="book-info tsize-16">
+             
+              <li>{{book.author}}</li>
+              <li>{{book.press}}</li>
+              <li>{{book.date}}</li>
+              <li>{{book.translator}}</li>
+              <hr>
+              <li>{{book.introduction}}</li>
           </ul>
+          
+  
       </div>
+
+
+
+      <div class="button-flex">
+
+        <button
+          class="wish-btn action-btn btn-reset"
+          @click.stop="addToWish(book)"
+          :class="{ activeHeart: isWish(book) }">
+      
+          <div class="btn-column">
+            <i class="fa-solid fa-heart wish-icon btn-icon"></i>
+            <span class="btn-text">加入心願</span>
+
+          </div>
+      
+        </button>
+          
+            <a class="action-btn"
+               @click="goBook()">
+          
+              <div class="btn-column">
+                <i class="fa-solid fa-book-open tabar-icon"></i>
+                <span>試閱</span>
+              </div>
+          
+            </a>
+          
+          
+            <button
+              class="shoppingCart-btn action-btn btn-reset"
+              @click="addToCart(book,$event)">
+          
+              <span 
+              class="cart-badge flex-center text-white"
+              v-if="cart.length > 0" >
+                {{ cart.length }}
+              </span>
+          
+              <div class="btn-column">
+                <i class="fa-solid fa-cart-shopping tabar-icon"></i>
+                <span>加入購物車</span>
+              </div>
+          
+            </button>
+          
+          </div>
 
     </div>
-    </div>
 
-      <div class="book-synopsis bg-white">
-        <h3 class="synopsis-item">內容簡介</h3>
-        <p>{{book.introduction}}</p>
-        <p>這本書的內容引人入勝，作者以細膩的筆觸探討了人性深處的情感。故事情節緊湊，每一章節都讓人迫不及待想知道接下來的發展。角色塑造也相當出色，讓讀者能夠在閱讀過程中對他們產生深厚的共鳴。
-            這本書的敘事方式獨樹一幟，寫作風格清新又富有詩意，適合喜愛沉浸於文字之美的讀者。儘管其背後蘊含深刻的社會議題，卻不顯沉重，反而能引發讀者進一步思考。
-            閱讀這本書猶如展開一場心靈之旅，內容發人深省，時而感人肺腑，時而發人深思。透過細膩的描寫與精巧的結構，讀者能夠感受到作者對於主題的深入剖析。
-            整體而言，這是一部值得深入品味的作品。它不僅激發想像力，更能讓人重新審視自身與周遭的關係，非常值得推薦給熱愛思考與探索內心世界的讀者。
-        </p>
-        <h3 class="synopsis-item">本書特色</h3>
-        <p>在這本書中，你將踏上一段引人入勝的旅程，探索人性的深度與複雜性。作者以豐富的筆觸描繪人物，將角色的內心世界鮮明地展現在讀者眼前。每一個情節設計都細膩且精緻，引導讀者不斷深入思考生命中的關鍵問題。這本書不僅是一次愉悅的閱讀之旅，更是一場心靈的洗禮，讓人不得不反思自己的生活與選擇。推薦給所有渴望了解自我、尋求生活意義的讀者，這段閱讀之旅會帶給你滿滿的啟發與收穫。
-        </p>
-        <h3 class="synopsis-item">本書目錄</h3>
-        <ul>
-            <li>1.前言</li>
-            <li>2.第一章: 引言</li>
-            <li>3.第二章: 理論基礎</li>
-            <li>4.第三章: 研究方法</li>
-            <li>5.第四章: 結果分析</li>
-            <li>6.第五章: 討論與交流</li>
-            <li>7.第六章: 案例研究</li>
-            <li>8.第七章: 結論</li>
-            <li>9.附錄A: 術語解釋</li>
-            <li>10.附錄B: 問卷範本</li>
-            <li>11.參考文獻</li>
-            <li>12 致謝詞</li>
-            <li>13.數據表</li>
-            <li>14.作者介紹</li>
-        </ul>
-      </div>
-
-
-    <div class="action-btn-tabar bg-white">
-        <button class="action-btn btn-reset" @click="addToCart(book)">加入購物車</button>
-        <button class="action-btn btn-reset" @click="goBook(book)">試閱</button>
-        <button class="action-btn btn-reset" @click="addToWish(book)">心願清單</button>
-
-      </div>
-
-</div>    
-</div>
-
-    
+  </div>    
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>

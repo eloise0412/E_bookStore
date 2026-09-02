@@ -10,50 +10,51 @@
 <body>
 <div id="app">
 
-    <div class="header">
-        <h1 class="logo flex-center"></h1>
+<div class="size-container">
+    <div class="header flex-center">
+        <a class="return-btn" @click="returnBtn">
+            <i class="fa-solid fa-chevron-left return-icon"></i>
+        </a>
+
+        <h1 class="header-title tsize-16 flex-center">購買項目</h1>
+
+        <div class="header-space"></div>
+                    
     </div>
 
 <div v-if="isLogin">   
 
-<div class="cart-list" >
+<ul class="shoppingCart_list" >
 
-    <div v-if="cart.length === 0" class="empty-cart flex-center">尚未加入商品</div>
+    <li v-if="cart.length === 0" class="empty-cart flex-center">尚未加入商品</li>
 
     <template v-else>
-       
-    <div v-for="(item,index) in cart" class="cart-contant">
+    <li v-for="(item,index) in cart" class="shoppingCart_grid_contant">
 
-    <div class="book-info">
-        <div class="info-item">
-        <img :src="item.cover" alt="商品圖片">
-        </div>
-            <div class="info-item">
-            <h3 class="book-name tsize-16">{{item.name}}</h3>
-            <p>作者{{item.author}}</p>
-            </div>
-    </div>   
+    <div class="book-cover">    
+    <img :src="item.cover" alt="商品圖片">
+    </div>
 
-    <div class="info-item">   
+        <h3 class="book-name tsize-16">{{item.name}}</h3>
+        
         <p  class="book-price tsize-16">NT${{item.price}}</p>
-</div>
-        <div class="info-item flex-column">    
-            <input class="book-amount tsize-16" type="number" min="1" v-model.number="item.quantity"
-            @change="saveCart">
-        </div>
+        <input class="book-amount tsize-16" type="number" min="1" v-model.number="item.quantity"
+        @change="saveCart">
 
-            <button @click="removeCart(index)" class="info-item btn-reset cursor tsize-16">
-              <i class="delete-btn fa-solid fa-trash-can" ></i>
-            </button>
-        </div>
 
+        <button @click="removeCart(index)" class="delete-contain btn-reset cursor tsize-16">
+           <i class="delete-btn fa-solid fa-trash-can" ></i>
+        </button>
+       
+
+    </li>
     </template>
-</div>
+</ul>
 
 </div>
 
 <div v-else>
-    <h2 class="login-remind flex-center mt-24">請先登入</h2>
+    <h2 class="flex-center mt-24">請先登入</h2>
 
 </div>
 
@@ -62,6 +63,7 @@
     <button @click="paymentBtn" id="paymentBtn" class="btn-reset cursor flex-center" v-bind:disabled="cart.length === 0|| !isLogin">前往購買</button>
 </div>
 
+</div>
 </div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 

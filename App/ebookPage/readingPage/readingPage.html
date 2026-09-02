@@ -8,13 +8,15 @@
 </head>
 <body>
     <div id="app">
+        
+    <div class="size-container">
 
         <div class="header">
             <a class="return-btn" @click="returnBtn">
                 <i class="fa-solid fa-chevron-left return-icon"></i>
             </a>
 
-            <h1 class="header-title flex-center tsize-16">{{book.name}}</h1>
+            <h1 class="header-title flex-center text-white tsize-16">{{book.name}}</h1>
 
             <div class="header-space"></div>
                         
@@ -23,7 +25,7 @@
 
         <!-- Loading -->
         <div class="loading" v-if="isLoading">
-            <img src="/icon/loding.gif" alt="Loading">
+            <img class="loading-icon" src="/icon/loding.gif" alt="Loading">
         </div>
         
         <div v-else>
@@ -31,6 +33,7 @@
         </div>
 
     </div>
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>

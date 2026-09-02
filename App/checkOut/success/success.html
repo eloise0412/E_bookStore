@@ -10,8 +10,9 @@
     
 <div id="app">
         
-    <div class="header">
-       <div class="logo"></div>
+
+<div class="size-container">   
+    <div class="header flex-center">        
     </div>
 
     <div class="order-success"> 
@@ -60,11 +61,15 @@
 
     </div> 
 
+    <div @click="indexBtn" class="return-action flex-center">
+        <button id="return-index" class="cursor btn-reset"  @click="clearOrder()">回到主頁</button>
+    </div>
 
 </div>
 
-<div @click="indexBtn" class="return-action flex-center">
-    <button id="return-index" class="cursor btn-reset"  @click="clearOrder()">回到主頁</button>
+<div>
+
+</div>
 </div>
 </div>
 

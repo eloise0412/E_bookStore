@@ -10,8 +10,9 @@
 
 <div id="app">
   
-  <div class="header">
-    <div class="logo"></div>
+<div class="size-container">
+  
+  <div class="header flex-center">        
   </div>
 
   <div class="payment flex-center">
@@ -98,11 +99,14 @@
 
   
   <div class="checkout-action">
+    <button @click="returnBtn" id="return-btn" class="btn-reset cursor">回上一步</button>
     <button @click="submitOrder" id="checkout-btn" class="btn-reset cursor">送出訂單</button>
   </div>
 
 </div>
 
+
+</div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="/App/checkOut/pay/payment.js"></script>
