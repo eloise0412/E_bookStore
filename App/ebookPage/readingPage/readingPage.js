@@ -29,7 +29,7 @@ const app = {
                 const id = params.get("id");
 
                 // 自動取得目前網頁的主機位置
-                const API_URL = `http://${location.hostname}:3000`;
+                const API_URL = "https://e-bookstore-1-037t.onrender.com";
 
                 const res = await axios.get(
                     `${API_URL}/books`
