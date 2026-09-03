@@ -137,7 +137,7 @@ font-size: 16px;
     height: 100vh;
     min-width: 340px;
 
-    background-image:url("../../img/bkPicture.jpg") ;
+    background-image:url("/E_bookStore/img/bkPicture.jpg") ;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -153,7 +153,7 @@ font-size: 16px;
 
 @media(min-width: 560px){
   .background-picture{
-    background-image:url("../../img/bkPicture-02.jpg") ;
+    background-image:url("/E_bookStore/img/bkPicture-02.jpg") ;
   }
 }
 
