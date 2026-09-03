@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>翻閱</title>
-    <link rel="stylesheet" href="/App/eBookPage/index.css">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
 
@@ -34,8 +34,8 @@
 
     <div class="carousel-slider mb-24"> 
         <div class="carousel-img-contain"> 
-            <div class="carousel-img-item"><img  class="carousel-img" src="/img/banner-01.jpg"> </div>
-            <div class="carousel-img-item"> <img class="carousel-img" src="/img/banner-02.jpg"> </div>  
+            <div class="carousel-img-item"><img  class="carousel-img" src="../../img/banner-01.jpg"> </div>
+            <div class="carousel-img-item"> <img class="carousel-img" src="../../img/banner-02.jpg"> </div>  
         </div>
 
       
@@ -155,19 +155,19 @@
    
         <ul class="taBar-list">
             <li class="taBar-item">
-                <a class="taBar-link flex-column" href="/App/audioPage/audioIndex/index.html">
+                <a class="taBar-link flex-column" href="../audioPage/audioIndex/index.html">
                     <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
 
 
 
             <li class="taBar-item">
-                <a class="taBar-link flex-column text-white" href="/App/ebookPage/index.html">
+                <a class="taBar-link flex-column text-white" href="./index.html">
                     <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
 
         
             <li class="taBar-item">
                 <a class="taBar-link flex-column" 
-                href="/App/checkOut/shoppingCart/cart.html">
+                href="../checkOut/shoppingCart/cart.html">
 
               <span class="cart-badge flex-center text-white" 
                 v-if="cart.length > 0">{{ cart.length }}</span>
@@ -178,14 +178,14 @@
             
             <li class="taBar-item">
                 <a class="taBar-link flex-column" 
-                href="/App/bookcase/bookcase.html">
+                href="../bookcase/bookcase.html">
                 <img class="bookcase-img" 
-                src="/icon/caseW.png">書櫃</a></li>
+                src="../../icon/caseW.png">書櫃</a></li>
 
 
             <li class="taBar-item">
                 <a class="taBar-link flex-column"
-                 href="/App/member/member.html">
+                 href="../member/member.html">
                 <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
         </ul>
     </div>
@@ -198,6 +198,6 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
-<script src="/App/eBookPage/index.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>

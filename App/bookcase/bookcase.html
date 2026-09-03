@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>書櫃</title>
-    <link rel="stylesheet" href="/App/bookcase/bookcase.css">
+    <link rel="stylesheet" href="./bookcase.css">
 </head>
 <body>
 
@@ -60,19 +60,19 @@
         <ul class="taBar-list">
             <li class="taBar-item">
             <a class="taBar-link flex-column" 
-            href="/App/audioPage/audioIndex/index.html">
+            href="../audioPage/audioIndex/index.html">
             <i class="fa-solid fa-headphones taBar-icon"></i>有聲書</a></li>
 
 
             <li class="taBar-item">
             <a class="taBar-link flex-column"
-            href="/App/ebookPage/index.html">
+            href="../ebookPage/index.html">
             <i class="fa-solid fa-book-open taBar-icon"></i>電子書</a></li>
 
         
             <li class="taBar-item">
             <a class="taBar-link flex-column" 	
-            href="/App/checkOut/shoppingCart/cart.html">
+            href="../checkOut/shoppingCart/cart.html">
             <span class="cart-badge flex-center" 
             v-if="cart.length > 0"> {{ cart.length }}</span>
             <i class="fa-solid fa-cart-shopping taBar-icon"></i>購物車</a></li>
@@ -81,13 +81,13 @@
             
             <li class="taBar-item">
             <a class="taBar-link flex-column"
-             href="/App/bookcase/bookcase.html">
+             href="./bookcase.html">
             <img class="bookcase-img" src="/icon/caseW.png">書櫃</a></li>
 
 
             <li class="taBar-item">
             <a class="taBar-link flex-column" 
-            href="/App/member/member.html">
+            href="../member/member.html">
             <i class="fa-solid fa-user taBar-icon"></i>會員</a></li>
         </ul>
     </div>
@@ -98,6 +98,6 @@
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 <script src="https://kit.fontawesome.com/b2c49ae549.js" crossorigin="anonymous"></script>
-<script src="/App/bookcase/bookcase.js"></script>
+<script src="./bookcase.js"></script>
 </body>
 </html>

@@ -25,12 +25,12 @@ const app = {
     
             localStorage.removeItem("isLogin");
     
-            location.href ="/App/loginPage/login.html";
+            location.href ="../loginPage/login.html";
     
         },
 
         login(){
-            location.href ="/App/loginPage/login.html";
+            location.href ="../loginPage/login.html";
         }
     },
     created() {

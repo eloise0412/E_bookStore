@@ -39,7 +39,7 @@ const app = {
             );          
 
             location.href =
-            `/App/bookDetailPage/detail.html?id=${book.id}`;
+            `../../bookDetailPage/detail.html?id=${book.id}`;
 ;
         }
        },

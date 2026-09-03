@@ -25,7 +25,7 @@ const app = {
             
                 localStorage.setItem("isLogin", "true");
             
-                location.href = "/App/audioPage/audioIndex/index.html";
+                location.href = "../audioPage/audioIndex/index.html";
             
             }
         },
