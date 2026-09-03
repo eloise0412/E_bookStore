@@ -56,7 +56,7 @@ const app={
             localStorage.removeItem('cart')
     },
     indexBtn(){
-        location.href='../../eBookPage/index.html';
+        location.href='../../../eBookPage/index.html';
     }
 },
 mounted() {
